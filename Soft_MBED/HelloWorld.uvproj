@@ -408,11 +408,6 @@
               <FilePath>.\Sources\CTelemetres.cpp</FilePath>
             </File>
             <File>
-              <FileName>CAnaconbot.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\CAnaconbot.cpp</FilePath>
-            </File>
-            <File>
               <FileName>CAsservissement.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\CAsservissement.cpp</FilePath>
@@ -443,9 +438,9 @@
               <FilePath>.\Sources\CGlobale_ModeAutonome.cpp</FilePath>
             </File>
             <File>
-              <FileName>CGlobale_ModePiloteAnaconbot.cpp</FileName>
+              <FileName>CGlobale_ModePiloteLaBotBox.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Sources\CGlobale_ModePiloteAnaconbot.cpp</FilePath>
+              <FilePath>.\Sources\CGlobale_ModePiloteLaBotBox.cpp</FilePath>
             </File>
             <File>
               <FileName>CGlobale_ModePiloteTerminal.cpp</FileName>
@@ -468,26 +463,6 @@
               <FilePath>.\Sources\CRoues.cpp</FilePath>
             </File>
             <File>
-              <FileName>CServoMoteur.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\CServoMoteur.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>CTrameCAN.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\CTrameCAN.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>CTrameEcranTactile.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\CTrameEcranTactile.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MessagerieAnaconbot.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Sources\MessagerieAnaconbot.cpp</FilePath>
-            </File>
-            <File>
               <FileName>MessagerieEcranTactile.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\MessagerieEcranTactile.cpp</FilePath>
@@ -496,6 +471,11 @@
               <FileName>MessagerieCamera.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\MessagerieCamera.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MessagerieLaBotBox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\MessagerieLaBotBox.cpp</FilePath>
             </File>
             <File>
               <FileName>RessoucesHardware.cpp</FileName>
@@ -513,9 +493,34 @@
               <FilePath>.\Sources\CMoteurs.cpp</FilePath>
             </File>
             <File>
+              <FileName>CServoMoteurAX.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CServoMoteurAX.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CServoMoteurSD20.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CServoMoteurSD20.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CTrameCAN.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CTrameCAN.cpp</FilePath>
+            </File>
+            <File>
               <FileName>CTrameCamera.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Sources\CTrameCamera.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CTrameEcranTactile.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CTrameEcranTactile.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CTrameLaBotBox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CTrameLaBotBox.cpp</FilePath>
             </File>
             <File>
               <FileName>CCamera.cpp</FileName>
@@ -527,16 +532,16 @@
               <FileType>8</FileType>
               <FilePath>.\Sources\CAsservissementSulfateuse.cpp</FilePath>
             </File>
+            <File>
+              <FileName>CLaBotBox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sources\CLaBotBox.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>inc</GroupName>
           <Files>
-            <File>
-              <FileName>CAnaconbot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Includes\CAnaconbot.h</FilePath>
-            </File>
             <File>
               <FileName>CAsservissement.h</FileName>
               <FileType>5</FileType>
@@ -578,11 +583,6 @@
               <FilePath>.\Includes\CRoues.h</FilePath>
             </File>
             <File>
-              <FileName>CServoMoteur.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Includes\CServoMoteur.h</FilePath>
-            </File>
-            <File>
               <FileName>CTrameCAN.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Includes\CTrameCAN.h</FilePath>
@@ -591,11 +591,6 @@
               <FileName>CTrameEcranTactile.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Includes\CTrameEcranTactile.h</FilePath>
-            </File>
-            <File>
-              <FileName>MessagerieAnaconbot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Includes\MessagerieAnaconbot.h</FilePath>
             </File>
             <File>
               <FileName>MessagerieEcranTactile.h</FileName>
@@ -631,6 +626,41 @@
               <FileName>CAsservissementSulfateuse.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Includes\CAsservissementSulfateuse.h</FilePath>
+            </File>
+            <File>
+              <FileName>CCamera.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CCamera.h</FilePath>
+            </File>
+            <File>
+              <FileName>CdsPIC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CdsPIC.h</FilePath>
+            </File>
+            <File>
+              <FileName>CServoMoteurAX.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CServoMoteurAX.h</FilePath>
+            </File>
+            <File>
+              <FileName>CServoMoteurSD20.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CServoMoteurSD20.h</FilePath>
+            </File>
+            <File>
+              <FileName>CTrameCamera.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CTrameCamera.h</FilePath>
+            </File>
+            <File>
+              <FileName>CTrameLaBotBox.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\CTrameLaBotBox.h</FilePath>
+            </File>
+            <File>
+              <FileName>MessagerieLaBotBox.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Includes\MessagerieLaBotBox.h</FilePath>
             </File>
           </Files>
         </Group>

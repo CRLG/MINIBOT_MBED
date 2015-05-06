@@ -516,8 +516,8 @@ if (convergence_conf == 0) // Pas la peine de calculer la commande si on a conve
 		cde_moteur_D = saturation(cde_moteur_D, -100, 100);
 
 		// Diag de blocage
-		if ( (vitesse_avance_robot * cde_distance_recal) > 0) // On regarde si la commande et la vitesse sont de même signe car par la suite on est en valeur abs, évite d'incrémenter le compteur durant le freinage
-			{
+		//if ( (vitesse_avance_robot * cde_distance_recal) > 0) // On regarde si la commande et la vitesse sont de même signe car par la suite on est en valeur abs, évite d'incrémenter le compteur durant le freinage
+			//{
 			if ( ((fabsf(vitesse_avance_robot) < seuil_vitesse_diag_blocage) && (fabsf(cde_distance_recal) > commande_min_diag_blocage)) || ((fabsf(vitesse_rotation_robot) < seuil_vitesse_diag_rotation) && (fabsf(cde_angle) > commande_min_diag_blocage)) )
 				{
 				if (compteur_diag_blocage < seuil_max_compteur_diag_blocage)
@@ -541,7 +541,7 @@ if (convergence_conf == 0) // Pas la peine de calculer la commande si on a conve
 					diag_blocage = 0;
 					}
 				}
-			}
+			//}
 			
 		if (diag_blocage == 1)
 			{

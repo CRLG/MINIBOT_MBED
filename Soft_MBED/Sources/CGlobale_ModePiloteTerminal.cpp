@@ -89,7 +89,7 @@ void CGlobale::SequenceurModePiloteTerminal(void)
   if (cpt10msec >= TEMPO_10msec) {
   	cpt10msec = 0;
 
- 	m_Servos.GestionTransfert();
+ 	m_servos_sd20.GestionTransfert();
  }
 
   // ______________________________

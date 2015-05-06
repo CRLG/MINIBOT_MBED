@@ -48,6 +48,7 @@ extern Serial _rs232_ecran_rx;
 extern Serial _rs232_camera_tx;
 extern Serial _rs232_camera_rx;
 extern I2C _i2c;
+extern Serial _ax12_serial;
 extern LocalFileSystem local;
 #endif
 

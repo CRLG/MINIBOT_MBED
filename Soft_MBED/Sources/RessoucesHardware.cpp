@@ -60,6 +60,9 @@ Serial _rs232_camera_rx(p28, p27);
 // __________________________________________________ I2C
 I2C _i2c(p9, p10); //SDA, SCL pour les servos
 
+
 // __________________________________________________ FICHIERS SUR MBED
 LocalFileSystem local("local");
 
+// __________________________________________________ RS232 de pilotage des servos AX
+Serial _ax12_serial (p28, p27);

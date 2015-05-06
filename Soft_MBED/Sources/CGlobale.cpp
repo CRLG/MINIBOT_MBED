@@ -70,7 +70,8 @@ void CGlobale::Run(void)
  m_eeprom.Read();
  
  // Initialisation des servos moteurs
- m_Servos.Init();
+ m_servos_sd20.Init();
+ m_servos_ax.Init();
 
  _rs232_pc_tx.printf("ki_angle = %f\n\r", Application.m_asservissement.ki_angle);
  _rs232_pc_tx.printf("cde_max = %d\n\r", Application.m_asservissement.cde_max);
@@ -78,7 +79,7 @@ void CGlobale::Run(void)
 
  switch(ModeFonctionnement) {
   	case MODE_AUTONOME : 			ModeAutonome();			break;
-	case MODE_PILOTE_ANACONBOT : 	ModePiloteAnaconbot();	break;
+	case MODE_PILOTE_LABOTBOX : 	ModePiloteLaBotBox();	break;
 	case MODE_PILOTE_TERMINAL : 	ModePiloteTerminal();	break;
 	default : 						ModeAutonome();			break;
  }

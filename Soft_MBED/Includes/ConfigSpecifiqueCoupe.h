@@ -5,7 +5,8 @@
 #define _CONFIG_SPECIFIQUE_COUPE
 
 #include "CMoteurs.h"
-#include "CServoMoteur.h"
+#include "CServoMoteurSD20.h"
+#include "CServoMoteurAX.h"
 
 // Affectation des sorties moteurs
 typedef enum {
@@ -34,7 +35,13 @@ typedef enum {
 	SERVO_3,
 	SERVO_4,
 	SERVO_5
-} eATTRIBUTION_SERVOS;
+} eATTRIBUTION_SERVOS_SD20;
+
+//! cet enumere contient les numeros d'attribution des servos pour 2014
+typedef enum {
+	SERVO_xxx=1,
+    SERVO_yyy
+} eATTRIBUTION_SERVOS_AX;
 
 
 #endif // _CONFIG_SPECIFIQUE_COUPE

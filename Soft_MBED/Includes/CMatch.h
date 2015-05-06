@@ -6,7 +6,9 @@
 #define _MATCH_H_
 
 #include "CMoteurs.h"
-#include "CServoMoteur.h"
+#include "CServoMoteurSD20.h"
+#include "CServoMoteurAX.h"
+
 //! cet enumere contient les numeros d'attribution des servos pour 2014
 /*
 typedef enum {

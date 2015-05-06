@@ -178,7 +178,7 @@
 
   <Group>
     <GroupName>src</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -822,7 +822,7 @@
 
   <Group>
     <GroupName>ModeleMatlab</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -882,70 +882,5 @@
       <FilenameWithoutPath>rt_zcfcn.c</FilenameWithoutPath>
     </File>
   </Group>
-
-  <MDIGroups>
-    <Orientation>1</Orientation>
-    <ActiveMDIGroup>0</ActiveMDIGroup>
-    <MDIGroup>
-      <Size>100</Size>
-      <ActiveTab>7</ActiveTab>
-      <Documents>
-        <Doc>
-          <Name>.\Includes\CEcranTactile.h</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>39</TopLine>
-          <CurrentLine>46</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Includes\ConfigSpecifiqueCoupe.h</Name>
-          <ColumnNumber>7</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>34</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Sources\CMatch.cpp</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>191</TopLine>
-          <CurrentLine>198</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Sources\CGlobale_ModeAutonome.cpp</Name>
-          <ColumnNumber>61</ColumnNumber>
-          <TopLine>369</TopLine>
-          <CurrentLine>376</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Sources\CGlobale.cpp</Name>
-          <ColumnNumber>72</ColumnNumber>
-          <TopLine>55</TopLine>
-          <CurrentLine>59</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Sources\CEcranTactile.cpp</Name>
-          <ColumnNumber>34</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\ModeleMatlab\ModeleRobot_ert_rtw\ModeleRobot.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1476</TopLine>
-          <CurrentLine>1480</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\ModeleMatlab\ModeleRobot_ert_rtw\ModeleRobot_data.c</Name>
-          <ColumnNumber>6</ColumnNumber>
-          <TopLine>37</TopLine>
-          <CurrentLine>47</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Sources\CServoMoteur.cpp</Name>
-          <ColumnNumber>19</ColumnNumber>
-          <TopLine>168</TopLine>
-          <CurrentLine>168</CurrentLine>
-        </Doc>
-      </Documents>
-    </MDIGroup>
-  </MDIGroups>
 
 </ProjectOpt>

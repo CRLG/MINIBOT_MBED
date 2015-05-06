@@ -173,12 +173,12 @@ void CMatch::step(void)
 	// ___________________________ 
 	// Commande des servos moteurs
 	if (ModeleRobot_Y.OUT_CmdServoFruitMouths != m_old_cde_servo[SERVO_FRUITMOUTHS]) {
-        Application.m_Servos.CommandePositionVitesse(SERVO_FRUITMOUTHS, ModeleRobot_Y.OUT_CmdServoFruitMouths, ModeleRobot_Y.OUT_SpdServoFruitMouths);
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_FRUITMOUTHS, ModeleRobot_Y.OUT_CmdServoFruitMouths, ModeleRobot_Y.OUT_SpdServoFruitMouths);
         m_old_cde_servo[SERVO_FRUITMOUTHS] = ModeleRobot_Y.OUT_CmdServoFruitMouths;
     }
 
 	if (ModeleRobot_Y.OUT_CmdServoCrochet != m_old_cde_servo[SERVO_CROCHET]) {
-        Application.m_Servos.CommandePositionVitesse(SERVO_CROCHET, ModeleRobot_Y.OUT_CmdServoCrochet, ModeleRobot_Y.OUT_SpdServoCrochet);
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_CROCHET, ModeleRobot_Y.OUT_CmdServoCrochet, ModeleRobot_Y.OUT_SpdServoCrochet);
 	    m_old_cde_servo[SERVO_CROCHET] = ModeleRobot_Y.OUT_CmdServoCrochet;
     }
 	

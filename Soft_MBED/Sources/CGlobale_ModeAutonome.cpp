@@ -109,7 +109,7 @@ void CGlobale::SequenceurModeAutonome(void)
   if (cpt10msec >= TEMPO_10msec) {
   	cpt10msec = 0;
 
-	m_Servos.GestionTransfert();
+	m_servos_sd20.GestionTransfert();
 
   }
 
@@ -361,29 +361,29 @@ void CGlobale::CheckReceptionTrameEcran(void)
 		  
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_NERF :
-            m_Servos.CommandePositionVitesse(SERVO_FRUITMOUTHS, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_FRUITMOUTHS, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_KMAR :
-            m_Servos.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_FEU :
             if (m_ecran_tactile.m_ETAT_ECRAN.Valeur < 5) {
-                m_Servos.CommandePositionVitesse(SERVO_3, 65, 0);
+                m_servos_sd20.CommandePositionVitesse(SERVO_3, 65, 0);
 		    }
             else {
-                m_Servos.CommandePositionVitesse(SERVO_3, 148, 0);
+                m_servos_sd20.CommandePositionVitesse(SERVO_3, 148, 0);
             }
-            //m_Servos.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);        
+            //m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);        
         break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_CROCHET_AR :
-            m_Servos.CommandePositionVitesse(SERVO_CROCHET, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_CROCHET, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_ANCRAGE_FILET :
-            m_Servos.CommandePositionVitesse(SERVO_5, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_5, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_MVT_DISTANCE_ANGLE :

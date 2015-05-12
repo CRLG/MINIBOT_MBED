@@ -143,7 +143,7 @@ void CAsservissement::Init(void)
  commande_min_diag_blocage = 20;		// En cas de blocage l'égrateur charge rapidement à des valeurs importantes
  seuil_vitesse_diag_rotation = 0.05;	// rad/s
  seuil_max_compteur_diag_blocage = 10;	// k * te = g secondes
- inc_diag_blocage = 1;
+ inc_diag_blocage = 0;
  dec_diag_blocage = 2;
  compteur_diag_blocage = 0;
  diag_blocage = 0;

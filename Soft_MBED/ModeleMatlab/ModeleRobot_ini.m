@@ -11,18 +11,43 @@ Te = 0.02;  % Période d'échantillonnage à 50msec
 PI=pi;
 %PI=3.1416;
 
-%SERVO actionnant le crochet arriere
-SERVO_CROCHET_RANGE = 160;
-SERVO_CROCHET_SORTI = 90; 
+%ID des Moteurs
+MOTEUR_ROUE_GAUCHE =1; %MOTEUR_1,
+MOTEUR_ROUE_DROITE=2;  % MOTEUR_2
 
-%SERVO actionnant le Nerf
-SERVO_FRUITMOUTHS_INIT = 0;
+%ID des Servos
+SERVO_INCLINAISON=13;
+SERVO_BRAS_D=14;
+SERVO_BRAS_G=15;
+SERVO_BEQUILLE=16;
+
+% butee_max_servo_sd20_14=104
+% butee_min_servo_sd20_13=24
+% butee_max_servo_sd20_13=143
+% butee_min_servo_sd20_15=18
+% butee_max_servo_sd20_15=62
+% position_initiale_servo_sd20_15=18
+% butee_min_servo_sd20_14=15
+% position_initiale_servo_sd20_14=24
+% position_initiale_servo_sd20_13=143
+
+%SERVO INCLINAISON
+SERVO_INCLINAISON_PENCHE = 24;
+SERVO_INCLINAISON_DROIT=143;
+
+%SERVO BRAS D
+SERVO_BRAS_D_OUVERT = 104;
+SERVO_BRAS_D_FERME=24;
+
+%SERVO BRAS G
+SERVO_BRAS_G_OUVERT = 62;
+SERVO_BRAS_G_FERME=18;
 
 MAX_SPEED_SERVOS = 0;
 
 % Couleur de l'équipe
 EQUIPE_JAUNE = 0;
-EQUIPE_ROUGE = 1;
+EQUIPE_VERTE = 1;
 
 
 % ---------------------------------------------------

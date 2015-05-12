@@ -355,31 +355,25 @@ void CGlobale::CheckReceptionTrameEcran(void)
 
 
         // _________________________________________
-		case CMDE_PILOTAGE_ELECTROVANNE :
+		/*case CMDE_PILOTAGE_ELECTROVANNE :
             m_moteurs.CommandeVitesse(MOTEUR_ELECTRO_AIMANTS, m_ecran_tactile.m_ETAT_ECRAN.Valeur); 
-		break;
+		break;	*/
 		  
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_NERF :
-            m_servos_sd20.CommandePositionVitesse(SERVO_FRUITMOUTHS, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_INCLINAISON, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_KMAR :
-            m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_BRAS_D, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_FEU :
-            if (m_ecran_tactile.m_ETAT_ECRAN.Valeur < 5) {
-                m_servos_sd20.CommandePositionVitesse(SERVO_3, 65, 0);
-		    }
-            else {
-                m_servos_sd20.CommandePositionVitesse(SERVO_3, 148, 0);
-            }
-            //m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);        
+            m_servos_sd20.CommandePositionVitesse(SERVO_BRAS_G, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);        
         break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_CROCHET_AR :
-            m_servos_sd20.CommandePositionVitesse(SERVO_CROCHET, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_ANCRAGE_FILET :

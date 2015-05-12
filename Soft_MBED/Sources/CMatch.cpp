@@ -165,22 +165,29 @@ void CMatch::step(void)
 	// ___________________________ 
 	//Consignes actionneurs
     // Les commande d'actionneurs peuvent venir soit du modèle, soit de l'écran tactile
-	if (ModeleRobot_Y.OUT_OuvertureElectroAimants != m_old_cde_mot[MOTEUR_ELECTRO_AIMANTS]) {
+	/*if (ModeleRobot_Y.OUT_OuvertureElectroAimants != m_old_cde_mot[MOTEUR_ELECTRO_AIMANTS]) {
         Application.m_moteurs.CommandeVitesse(MOTEUR_ELECTRO_AIMANTS, ModeleRobot_Y.OUT_OuvertureElectroAimants); // ELECTROVANNE
 	    m_old_cde_mot[MOTEUR_ELECTRO_AIMANTS] = ModeleRobot_Y.OUT_OuvertureElectroAimants;
-    }    
+    }*/    
 
 	// ___________________________ 
 	// Commande des servos moteurs
-	if (ModeleRobot_Y.OUT_CmdServoFruitMouths != m_old_cde_servo[SERVO_FRUITMOUTHS]) {
-        Application.m_servos_sd20.CommandePositionVitesse(SERVO_FRUITMOUTHS, ModeleRobot_Y.OUT_CmdServoFruitMouths, ModeleRobot_Y.OUT_SpdServoFruitMouths);
-        m_old_cde_servo[SERVO_FRUITMOUTHS] = ModeleRobot_Y.OUT_CmdServoFruitMouths;
-    }
+	if (ModeleRobot_Y.OUT_CommandeServo[SERVO_INCLINAISON-1] != m_old_cde_servo[SERVO_INCLINAISON]) { 
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_INCLINAISON, ModeleRobot_Y.OUT_CommandeServo[SERVO_INCLINAISON-1], ModeleRobot_Y.OUT_SpeedServo[SERVO_INCLINAISON-1]);
+        m_old_cde_servo[SERVO_INCLINAISON] = ModeleRobot_Y.OUT_CommandeServo[SERVO_INCLINAISON-1];
+    } 
+	
+	if (ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_D-1] != m_old_cde_servo[SERVO_BRAS_D]) { 
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_BRAS_D, ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_D-1],ModeleRobot_Y.OUT_SpeedServo[SERVO_BRAS_D-1]);
+        m_old_cde_servo[SERVO_BRAS_D] = ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_D-1];
+    } 
 
-	if (ModeleRobot_Y.OUT_CmdServoCrochet != m_old_cde_servo[SERVO_CROCHET]) {
-        Application.m_servos_sd20.CommandePositionVitesse(SERVO_CROCHET, ModeleRobot_Y.OUT_CmdServoCrochet, ModeleRobot_Y.OUT_SpdServoCrochet);
-	    m_old_cde_servo[SERVO_CROCHET] = ModeleRobot_Y.OUT_CmdServoCrochet;
-    }
+	if (ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_G-1] != m_old_cde_servo[SERVO_BRAS_G]) { 
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_BRAS_G, ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_G-1], ModeleRobot_Y.OUT_SpeedServo[SERVO_BRAS_G-1]);
+        m_old_cde_servo[SERVO_BRAS_G] = ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_G-1];
+    } 
+	
+
 	
 	//SORTIES de MODELE
 	m_obstacleDetecte=ModeleRobot_Y.OUT_isObstacle;

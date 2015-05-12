@@ -7,10 +7,11 @@
 
 //    ROBOT PROTO GROBBOT 2014 
 // ------------------------------
-#define DISTANCE_PAR_PAS_CODEUR_G					0.003846302		// Roue gauche	100cm => 25966 pas
-#define DISTANCE_PAR_PAS_CODEUR_D					0.003846302	// Roue droite	100cm => 26031 pas	 moyenne 25999
-#define VOIE_ROBOT								18.3			// Distance entre les 2 roues [cm]
-#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		(1 / VOIE_ROBOT)	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
+#define DISTANCE_PAR_PAS_CODEUR_G					0.0337167165590043		// Roue gauche	100cm => 25966 pas
+#define DISTANCE_PAR_PAS_CODEUR_D					0.0337167165590043	// Roue droite	100cm => 26031 pas	 moyenne 25999
+#define VOIE_ROBOT								12.0			// Distance entre les 2 roues [cm]
+//#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		(1 / VOIE_ROBOT)	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
+#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		0.083333333	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
 #define te 0.02 													// s	Temps entre chaque appel de la tache asservissement
 #define M_PI (3.14f)
 

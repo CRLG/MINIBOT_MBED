@@ -156,7 +156,7 @@ Model {
       Name		      "OUT_isObstacle"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1308"
+    ComputedModelVersion    "1.1311"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -175,9 +175,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Admin"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 13 20:35:36 2015"
-  RTWModifiedTimeStamp	  353449859
-  ModelVersionFormat	  "1.%<AutoIncrement:1308>"
+  LastModifiedDate	  "Thu May 14 01:36:48 2015"
+  RTWModifiedTimeStamp	  353467753
+  ModelVersionFormat	  "1.%<AutoIncrement:1311>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -884,7 +884,7 @@ Model {
   }
   System {
     Name		    "ModeleRobot"
-    Location		    [2, 82, 1356, 628]
+    Location		    [2, 82, 1339, 611]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    212
@@ -896,9 +896,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "20"
+    ZoomFactor		    "89"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    905
+    SIDHighWatermark	    909
     Block {
       BlockType		      Inport
       Name		      "IN_Tirette"
@@ -1022,7 +1022,7 @@ Model {
       BlockType		      Inport
       Name		      "IN_SensDeplacement"
       SID		      826
-      Position		      [360, 833, 390, 847]
+      Position		      [210, 833, 240, 847]
       Port		      "13"
       IconDisplay	      "Port number"
       OutDataType	      "sfix(16)"
@@ -2172,7 +2172,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"DetectionObstacle"
-	Location		[1012, 213, 2348, 743]
+	Location		[2, 82, 1356, 628]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2397,7 +2397,7 @@ Model {
 	  SourceType		  "CMBlock"
 	  ShowPortLabels	  "FromPortIcon"
 	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData "off"
+	  FunctionWithSeparateData off
 	  RTWMemSecFuncInitTerm	  "Inherit from model"
 	  RTWMemSecFuncExecute	  "Inherit from model"
 	  RTWMemSecDataConstants  "Inherit from model"
@@ -2539,7 +2539,7 @@ Model {
 	  SourceType		  "Compare To Zero"
 	  ShowPortLabels	  "FromPortIcon"
 	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData "off"
+	  FunctionWithSeparateData off
 	  RTWMemSecFuncInitTerm	  "Inherit from model"
 	  RTWMemSecFuncExecute	  "Inherit from model"
 	  RTWMemSecDataConstants  "Inherit from model"
@@ -2547,7 +2547,7 @@ Model {
 	  RTWMemSecDataParameters "Inherit from model"
 	  relop			  "<"
 	  LogicOutDataTypeMode	  "uint8"
-	  ZeroCross		  "on"
+	  ZeroCross		  on
 	}
 	Block {
 	  BlockType		  Reference
@@ -2560,7 +2560,7 @@ Model {
 	  SourceType		  "Compare To Zero"
 	  ShowPortLabels	  "FromPortIcon"
 	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData "off"
+	  FunctionWithSeparateData off
 	  RTWMemSecFuncInitTerm	  "Inherit from model"
 	  RTWMemSecFuncExecute	  "Inherit from model"
 	  RTWMemSecDataConstants  "Inherit from model"
@@ -2568,7 +2568,7 @@ Model {
 	  RTWMemSecDataParameters "Inherit from model"
 	  relop			  ">"
 	  LogicOutDataTypeMode	  "uint8"
-	  ZeroCross		  "on"
+	  ZeroCross		  on
 	}
 	Block {
 	  BlockType		  Outport
@@ -2935,6 +2935,25 @@ Model {
       OutScaling	      "2^0"
     }
     Block {
+      BlockType		      Constant
+      Name		      "LimiteOut2"
+      SID		      906
+      Position		      [425, 825, 455, 855]
+      ShowName		      off
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "LimiteOut3"
+      SID		      909
+      Position		      [500, 1175, 530, 1205]
+      ShowName		      off
+      Value		      "1000"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+    }
+    Block {
       BlockType		      Reference
       Name		      "Model Info"
       SID		      112
@@ -2963,6 +2982,18 @@ Model {
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "ModeleRobot"
       TagMaxNumber	      "20"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      SID		      907
+      Position		      [295, 835, 315, 855]
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator1"
+      SID		      908
+      Position		      [455, 1180, 475, 1200]
     }
     Block {
       BlockType		      Outport
@@ -3330,12 +3361,6 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "IN_SensDeplacement"
-      SrcPort		      1
-      DstBlock		      "DetectionObstacle"
-      DstPort		      2
-    }
-    Line {
       SrcBlock		      "From1"
       SrcPort		      1
       DstBlock		      "DetectionObstacle"
@@ -3408,12 +3433,6 @@ Model {
       DstPort		      7
     }
     Line {
-      SrcBlock		      "From13"
-      SrcPort		      1
-      DstBlock		      "DetectionObstacle"
-      DstPort		      9
-    }
-    Line {
       SrcBlock		      "DetectionObstacle"
       SrcPort		      1
       DstBlock		      "Goto7"
@@ -3474,6 +3493,31 @@ Model {
       DstBlock		      "COMPORTEMENT"
       DstPort		      14
     }
+    Line {
+      SrcBlock		      "LimiteOut2"
+      SrcPort		      1
+      DstBlock		      "DetectionObstacle"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "IN_SensDeplacement"
+      SrcPort		      1
+      Points		      [15, 0; 0, 5]
+      DstBlock		      "Terminator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From13"
+      SrcPort		      1
+      DstBlock		      "Terminator1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "LimiteOut3"
+      SrcPort		      1
+      DstBlock		      "DetectionObstacle"
+      DstPort		      9
+    }
   }
 }
 # Finite State Machines
@@ -3499,16 +3543,13 @@ Stateflow {
     id			    2
     name		    "COMPORTEMENT"
     windowPosition	    [0 22.5 1024.5 427.5]
-    viewLimits		    [-18.75 1207.5 345.571 834.946]
+    viewLimits		    [-18.75 1207.5 295.32 784.695]
     zoomFactor		    1.25
     screen		    [1 1 1366 674 1.333333333333333]
     treeNode		    [0 3 0 0]
     viewObj		    49
-    visible		    1
     machine		    1
     subviewS {
-      x1		      228.843
-      y1		      39.15
     }
     ssIdHighWaterMark	    3957
     decomposition	    SET_CHART
@@ -4219,7 +4260,7 @@ Stateflow {
     visible		    0
     subviewer		    38
     subviewS {
-      x1		      49.078
+      x1		      384.888
       y1		      291.272
       zoomFactor	      0.833
       pos		      [0 0 1283.159 1078.17]
@@ -4295,9 +4336,9 @@ Stateflow {
   }
   state {
     id			    44
-    labelString		    "DETECT_OBSTACLE/\nentry :\nlocal_Tempo = 0;\nMouvement_ArretBrutal(); // Arrête tout pendant un "
-    "instant"
-    position		    [87.6406 184.3125 367.4688 80.3438]
+    labelString		    "DETECT_OBSTACLE/\nentry :\nlocal_Tempo = 0;\n//Mouvement_ArretBrutal(); // Arrête tout pendant u"
+    "n instant mais bug\nMouvement_Manuel(0,0);\nCommandeLEDS(1,0,0,0);"
+    position		    [87.6406 184.3125 420.4238 106.2263]
     fontSize		    12
     chart		    2
     treeNode		    [58 0 0 47]
@@ -4387,7 +4428,8 @@ Stateflow {
   }
   state {
     id			    49
-    labelString		    "DEMO/\nentry:\nTempo=0;\nduring:\nTempo++;"
+    labelString		    "DEMO/\nentry:\n   Tempo=0;\n   DistanceParcourue=0;DistanceParcourue2=0;\n   x_old=0;y_old=0;   "
+    "x_old2=0;y_old2=0;\n   x_temp=0;y_temp=0;\n   inhibeObstacle=0;\nduring:\n   Tempo++;"
     position		    [410.2983 439.5004 119.3136 90.072]
     fontSize		    12
     arrowSize		    16.074
@@ -4399,7 +4441,7 @@ Stateflow {
     subviewer		    40
     subviewS {
       x1		      -18.75
-      y1		      146.126
+      y1		      -18.75
       zoomFactor	      1.25
       pos		      [0 0 1577.205 2036.785]
     }
@@ -5027,11 +5069,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      12
-      intersection	      [2 1 0 0.4683 269.625 151.1186 0 -1.875]
+      intersection	      [2 1 0 0.4683 269.625 151.119 0 -1.875]
     }
     dst {
       id		      38
-      intersection	      [4 -1 -0 0.576 430.375 151.1186 0 1.875]
+      intersection	      [4 -1 -0 0.576 430.375 151.119 0 1.875]
     }
     midPoint		    [349.2339 151.1186]
     chart		    2
@@ -5092,7 +5134,7 @@ Stateflow {
   }
   transition {
     id			    94
-    labelPosition	    [93.627 79.85 7.997 15.305]
+    labelPosition	    [93.627 79.85 8.246 14.971]
     fontSize		    12
     arrowSize		    8.824
     src {
@@ -5114,7 +5156,7 @@ Stateflow {
   transition {
     id			    95
     labelString		    "[CouleurEquipe == EQUIPE_JAUNE]"
-    labelPosition	    [198.6 104.911 198.595 15.305]
+    labelPosition	    [198.6 104.911 194.906 14.971]
     fontSize		    12
     arrowSize		    8.824
     src {
@@ -5133,15 +5175,13 @@ Stateflow {
     stampAngle		    -1
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1013
   }
   transition {
     id			    96
     labelString		    "[CouleurEquipe == EQUIPE_VERTE]"
-    labelPosition	    [216.753 144.374 199.928 15.305]
+    labelPosition	    [216.753 144.374 195.655 14.971]
     fontSize		    12
     arrowSize		    8.824
     src {
@@ -5160,15 +5200,13 @@ Stateflow {
     stampAngle		    -1
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1014
   }
   transition {
     id			    97
     labelString		    "[(isObstacle==1) && (inhibeObstacle==0)]"
-    labelPosition	    [872.588 560.462 221.143 14.971]
+    labelPosition	    [872.588 560.462 221.055 14.965]
     fontSize		    12
     arrowSize		    16.074
     src {
@@ -5244,20 +5282,20 @@ Stateflow {
   }
   transition {
     id			    100
-    labelPosition	    [246.575 161.639 8.246 14.971]
+    labelPosition	    [271.554 161.639 8.029 16.034]
     fontSize		    12
     src {
-      intersection	      [0 0 1 0 260.9843 154.3125 0 0]
+      intersection	      [0 0 1 0 285.9632 154.3125 0 0]
     }
     dst {
       id		      44
-      intersection	      [1 0 -1 0.4717 260.9756 184.3125 0 0]
+      intersection	      [1 0 -1 0.4717 285.9545 184.3125 0 0]
     }
-    midPoint		    [260.9813 164.6388]
+    midPoint		    [285.9602 164.6388]
     chart		    2
     linkNode		    [58 0 129]
     visible		    0
-    dataLimits		    [258.576 263.376 154.313 184.313]
+    dataLimits		    [283.555 288.355 154.313 184.313]
     subviewer		    58
     executionOrder	    1
     ssIdNumber		    3817
@@ -5815,7 +5853,7 @@ Stateflow {
   }
   transition {
     id			    124
-    labelPosition	    [465.131 237.34 8.121 14.971]
+    labelPosition	    [465.131 237.34 8.118 14.965]
     fontSize		    12
     arrowSize		    16.074
     src {
@@ -5883,7 +5921,7 @@ Stateflow {
   }
   transition {
     id			    127
-    labelPosition	    [36.597 268.932 8.121 14.971]
+    labelPosition	    [36.597 268.932 8.118 14.965]
     fontSize		    12
     arrowSize		    16.074
     src {
@@ -5908,7 +5946,7 @@ Stateflow {
   transition {
     id			    128
     labelString		    "[DureeMatch > (0.04/Te)]"
-    labelPosition	    [466.515 384.049 133.061 14.971]
+    labelPosition	    [466.515 384.049 133.007 14.965]
     fontSize		    12
     arrowSize		    16.074
     src {
@@ -5935,24 +5973,26 @@ Stateflow {
   transition {
     id			    129
     labelString		    "[local_Tempo > (2/Te)]"
-    labelPosition	    [250.078 283.024 118.443 14.971]
+    labelPosition	    [250.075 292.738 117.753 16.034]
     fontSize		    12
     src {
       id		      44
-      intersection	      [3 0 1 0.56 249.3296 264.6563 0 20.5]
+      intersection	      [3 -0 1 0.6154 249.3269 290.5388 0 20.5]
     }
     dst {
       id		      47
-      intersection	      [1 -0 -1 0.4973 249.3296 328.7812 0 -20.5]
+      intersection	      [1 0 -1 0.4973 249.3269 328.7812 0 -20.5]
     }
-    midPoint		    [249.3296 293.8521]
+    midPoint		    [249.3269 306.2307]
     chart		    2
     linkNode		    [58 100 0]
     visible		    0
-    dataLimits		    [246.93 251.73 264.656 328.781]
+    dataLimits		    [246.927 251.727 290.539 328.781]
     stampAngle		    -1
     subviewer		    58
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    3818
   }
@@ -6035,7 +6075,7 @@ Stateflow {
   transition {
     id			    133
     labelString		    "[(EvitementEnCours==0)]"
-    labelPosition	    [850.491 415.952 134.31 14.971]
+    labelPosition	    [850.491 415.952 134.256 14.965]
     fontSize		    12
     arrowSize		    16.074
     src {
@@ -6143,11 +6183,9 @@ Stateflow {
     midPoint		    [476.875 515.7529]
     chart		    2
     linkNode		    [49 140 103]
-    dataLimits		    [474.475 479.275 493.438 544.375]
+    dataLimits		    [474.472 479.272 493.438 544.375]
     subviewer		    49
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    3955
   }
@@ -6181,11 +6219,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      64
-      intersection	      [3 0 1 0.5835 466.5616 281.0937 0 16.1719]
+      intersection	      [3 -0 1 0.5835 466.5693 281.0937 0 16.1719]
     }
     dst {
       id		      65
-      intersection	      [1 0 -1 0.354 466.5616 316.5625 0 -16.1719]
+      intersection	      [1 0 -1 0.354 466.5693 316.5625 0 -16.1719]
     }
     midPoint		    [466.5616 295.3385]
     chart		    2
@@ -6217,8 +6255,6 @@ Stateflow {
     dataLimits		    [471.672 476.472 380 430.469]
     subviewer		    49
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    3953
   }

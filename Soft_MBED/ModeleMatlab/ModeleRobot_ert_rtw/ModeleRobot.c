@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model ModeleRobot.
  *
- * Model version                        : 1.1308
+ * Model version                        : 1.1311
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Wed May 13 23:01:45 2015
+ * Real-Time Workshop file generated on : Thu May 14 01:38:49 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Wed May 13 23:01:46 2015
+ * C/C++ source code generated on       : Thu May 14 01:38:50 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -65,6 +65,7 @@ ExternalOutputs_ModeleRobot ModeleRobot_Y;
 
 /* Forward declaration for local functions */
 static void enter_internal_COMPORTEMENT_ROB(void);
+static void ModeleRobot_enter_atomic_DEMO(void);
 static void ModeleRobot_enter_internal_DEMO(void);
 static void Model_enter_internal_STRATEGIE1(void);
 static void ModeleRobot_COMPORTEMENT_ROBOT(void);
@@ -152,6 +153,18 @@ static void enter_internal_COMPORTEMENT_ROB(void)
 }
 
 /* Function for Stateflow: '<Root>/COMPORTEMENT' */
+static void ModeleRobot_enter_atomic_DEMO(void)
+{
+  /* Entry 'DEMO': '<S1>:3463' */
+  ModeleRobot_DWork.is_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
+  ModeleRobot_DWork.was_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
+  ModeleRobot_DWork.Tempo = 0.0;
+  ModeleRobot_DWork.x_old = 0.0;
+  ModeleRobot_DWork.y_old = 0.0;
+  ModeleRobot_DWork.inhibeObstacle = 0.0;
+}
+
+/* Function for Stateflow: '<Root>/COMPORTEMENT' */
 static void ModeleRobot_enter_internal_DEMO(void)
 {
   switch (ModeleRobot_DWork.was_DEMO) {
@@ -235,10 +248,7 @@ static void Model_enter_internal_STRATEGIE1(void)
 {
   switch (ModeleRobot_DWork.was_STRATEGIE1) {
    case ModeleRobot_IN_DEMO:
-    /* Entry 'DEMO': '<S1>:3463' */
-    ModeleRobot_DWork.is_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
-    ModeleRobot_DWork.was_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
-    ModeleRobot_DWork.Tempo = 0.0;
+    ModeleRobot_enter_atomic_DEMO();
     ModeleRobot_enter_internal_DEMO();
     break;
 
@@ -883,12 +893,19 @@ static void ModeleRobot_COMPORTEMENT_ROBOT(void)
               ModeleRobot_IN_DETECT_OBSTACLE;
             ModeleRobot_DWork.local_Tempo = 0.0;
 
-            /* Graphical Function 'Mouvement_ArretBrutal': '<S1>:1979' */
-            /* Transition: '<S1>:1981' */
-            ModeleRobot_B.ConsigneVitesseDistance = 0.0;
-            ModeleRobot_B.ConsigneVitesseAngle = 0.0;
+            /* Mouvement_ArretBrutal(); // Arrête tout pendant un instant mais bug */
+            /* Graphical Function 'Mouvement_Manuel': '<S1>:1299' */
+            /* Transition: '<S1>:1301' */
+            ModeleRobot_B.DdeMvtManuel = ModeleRobot_B.DdeMvtManuel + 1.0;
+            ModeleRobot_B.CommandeManuelleG = 0.0;
+            ModeleRobot_B.CommandeManuelleD = 0.0;
 
-            /*  Arrête tout pendant un instant */
+            /* Graphical Function 'CommandeLEDS': '<S1>:1339' */
+            /* Transition: '<S1>:1341' */
+            ModeleRobot_B.EtatLed1 = 1.0;
+            ModeleRobot_B.EtatLed2 = 0.0;
+            ModeleRobot_B.EtatLed3 = 0.0;
+            ModeleRobot_B.EtatLed4 = 0.0;
             break;
           }
         }
@@ -924,12 +941,19 @@ static void ModeleRobot_COMPORTEMENT_ROBOT(void)
             ModeleRobot_IN_DETECT_OBSTACLE;
           ModeleRobot_DWork.local_Tempo = 0.0;
 
-          /* Graphical Function 'Mouvement_ArretBrutal': '<S1>:1979' */
-          /* Transition: '<S1>:1981' */
-          ModeleRobot_B.ConsigneVitesseDistance = 0.0;
-          ModeleRobot_B.ConsigneVitesseAngle = 0.0;
+          /* Mouvement_ArretBrutal(); // Arrête tout pendant un instant mais bug */
+          /* Graphical Function 'Mouvement_Manuel': '<S1>:1299' */
+          /* Transition: '<S1>:1301' */
+          ModeleRobot_B.DdeMvtManuel = ModeleRobot_B.DdeMvtManuel + 1.0;
+          ModeleRobot_B.CommandeManuelleG = 0.0;
+          ModeleRobot_B.CommandeManuelleD = 0.0;
 
-          /*  Arrête tout pendant un instant */
+          /* Graphical Function 'CommandeLEDS': '<S1>:1339' */
+          /* Transition: '<S1>:1341' */
+          ModeleRobot_B.EtatLed1 = 1.0;
+          ModeleRobot_B.EtatLed2 = 0.0;
+          ModeleRobot_B.EtatLed3 = 0.0;
+          ModeleRobot_B.EtatLed4 = 0.0;
         } else {
           switch (ModeleRobot_DWork.is_STRATEGIE1) {
            case ModeleRobot_IN_DEMO:
@@ -1017,10 +1041,9 @@ static void ModeleRobot_COMPORTEMENT_ROBOT(void)
                 ModeleRobot_P.SFunction_p17) {
               /* Transition: '<S1>:2244' */
               /* Exit 'INIT_STRATEGIE': '<S1>:1128' */
-              /* Entry 'DEMO': '<S1>:3463' */
-              ModeleRobot_DWork.is_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
-              ModeleRobot_DWork.was_STRATEGIE1 = (uint8_T)ModeleRobot_IN_DEMO;
-              ModeleRobot_DWork.Tempo = 0.0;
+              ModeleRobot_DWork.is_STRATEGIE1 = (uint8_T)
+                ModeleRobot_IN_NO_ACTIVE_CHILD;
+              ModeleRobot_enter_atomic_DEMO();
               ModeleRobot_enter_internal_DEMO();
             }
             break;
@@ -1111,17 +1134,17 @@ void ModeleRobot_step(void)
 
   /* Switch: '<S2>/Switch' incorporates:
    *  Constant: '<Root>/LimiteOut1'
+   *  Constant: '<Root>/LimiteOut2'
    *  Constant: '<S2>/Constant1'
    *  Constant: '<S2>/SeuilDistance'
    *  Inport: '<Root>/IN_ObstacleAV'
-   *  Inport: '<Root>/IN_SensDeplacement'
    *  Logic: '<S2>/Logical Operator'
    *  RelationalOperator: '<S14>/Compare'
    *  RelationalOperator: '<S2>/Relational Operator'
    *  RelationalOperator: '<S2>/Relational Operator1'
    */
-  if ((ModeleRobot_U.IN_SensDeplacement > ((uint8_T)0U)) >=
-      ModeleRobot_P.Switch_Threshold) {
+  if ((ModeleRobot_P.LimiteOut2_Value > 0.0) >= ModeleRobot_P.Switch_Threshold)
+  {
     rtb_Switch = (real_T)((ModeleRobot_P.LimiteOut1_Value <=
       ModeleRobot_P.SeuilDistance_Value) || (ModeleRobot_U.IN_ObstacleAV <=
       ModeleRobot_P.SeuilDistance_Value));
@@ -1131,19 +1154,19 @@ void ModeleRobot_step(void)
 
   /* Switch: '<S2>/Switch1' incorporates:
    *  Constant: '<Root>/LimiteOut'
+   *  Constant: '<Root>/LimiteOut2'
+   *  Constant: '<Root>/LimiteOut3'
    *  Constant: '<S2>/Constant'
    *  Constant: '<S2>/SeuilDistance'
-   *  Inport: '<Root>/IN_ObstacleAR'
-   *  Inport: '<Root>/IN_SensDeplacement'
    *  Logic: '<S2>/Logical Operator1'
    *  RelationalOperator: '<S13>/Compare'
    *  RelationalOperator: '<S2>/Relational Operator2'
    *  RelationalOperator: '<S2>/Relational Operator3'
    */
-  if ((ModeleRobot_U.IN_SensDeplacement < ((uint8_T)0U)) >=
-      ModeleRobot_P.Switch1_Threshold) {
+  if ((ModeleRobot_P.LimiteOut2_Value < 0.0) >= ModeleRobot_P.Switch1_Threshold)
+  {
     rtb_Switch1 = (real_T)((ModeleRobot_P.LimiteOut_Value <=
-      ModeleRobot_P.SeuilDistance_Value) || (ModeleRobot_U.IN_ObstacleAR <=
+      ModeleRobot_P.SeuilDistance_Value) || (ModeleRobot_P.LimiteOut3_Value <=
       ModeleRobot_P.SeuilDistance_Value));
   } else {
     rtb_Switch1 = ModeleRobot_P.Constant_Value_e;

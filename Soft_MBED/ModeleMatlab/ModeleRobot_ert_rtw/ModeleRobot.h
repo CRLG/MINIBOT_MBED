@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model ModeleRobot.
  *
- * Model version                        : 1.1308
+ * Model version                        : 1.1311
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Wed May 13 23:01:45 2015
+ * Real-Time Workshop file generated on : Thu May 14 01:38:49 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Wed May 13 23:01:46 2015
+ * C/C++ source code generated on       : Thu May 14 01:38:50 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -119,7 +119,7 @@ typedef struct {
   real_T IN_ObstacleAR;                /* '<Root>/IN_ObstacleAR' */
   real_T IN_ConvergenceMvt_Rapide;     /* '<Root>/IN_ConvergenceMvt_Rapide' */
   real_T IN_Vitesse;                   /* '<Root>/IN_Vitesse' */
-  uint8_T IN_SensDeplacement;          /* '<Root>/IN_SensDeplacement' */
+  real_T IN_SensDeplacement;           /* '<Root>/IN_SensDeplacement' */
   uint8_T IN_isDepression;             /* '<Root>/IN_isDepression' */
   uint8_T IN_isMurFresque;             /* '<Root>/IN_isMurFresque' */
 } ExternalInputs_ModeleRobot;
@@ -153,6 +153,9 @@ typedef struct {
 struct Parameters_ModeleRobot_ {
   real_T SeuilDistance_Value;          /* Expression: 20
                                         * Referenced by: '<S2>/SeuilDistance'
+                                        */
+  real_T LimiteOut2_Value;             /* Expression: 1
+                                        * Referenced by: '<Root>/LimiteOut2'
                                         */
   real_T Constant_Value;               /* Expression: const
                                         * Referenced by: '<S6>/Constant'
@@ -213,6 +216,9 @@ struct Parameters_ModeleRobot_ {
                                         */
   real_T Constant_Value_e;             /* Expression: 0
                                         * Referenced by: '<S2>/Constant'
+                                        */
+  real_T LimiteOut3_Value;             /* Expression: 1000
+                                        * Referenced by: '<Root>/LimiteOut3'
                                         */
   real_T LimiteOut_Value;              /* Expression: 1000
                                         * Referenced by: '<Root>/LimiteOut'

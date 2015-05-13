@@ -5,9 +5,9 @@
  *
  * Model version                        : 1.1308
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Wed May 13 20:36:02 2015
+ * Real-Time Workshop file generated on : Wed May 13 23:01:45 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Wed May 13 20:36:03 2015
+ * C/C++ source code generated on       : Wed May 13 23:01:46 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -53,7 +53,7 @@ Parameters_ModeleRobot ModeleRobot_P = {
   14.0,                                /* Expression: SERVO_BRAS_D
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  24.0,                                /* Expression: SERVO_BRAS_D_FERME
+  5.0,                                 /* Expression: SERVO_BRAS_D_FERME
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
   104.0,                               /* Expression: SERVO_BRAS_D_OUVERT

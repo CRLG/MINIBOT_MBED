@@ -16,6 +16,7 @@
 #include "CEcranTactile.h"
 #include "CCamera.h"
 #include "CAsservissementSulfateuse.h"
+#include "ConfigSpecifiqueCoupe.h"
 
 typedef enum {
 	MODE_AUTONOME = 0,

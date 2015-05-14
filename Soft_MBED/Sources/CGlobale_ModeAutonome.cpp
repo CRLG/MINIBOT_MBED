@@ -373,7 +373,7 @@ void CGlobale::CheckReceptionTrameEcran(void)
         break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_CROCHET_AR :
-            m_servos_sd20.CommandePositionVitesse(SERVO_4, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
+            m_servos_sd20.CommandePositionVitesse(SERVO_DOIGT, m_ecran_tactile.m_ETAT_ECRAN.Valeur*25.5f, 0);
 		break;
         // _________________________________________
 		case CMDE_PILOTAGE_SERVO_ANCRAGE_FILET :

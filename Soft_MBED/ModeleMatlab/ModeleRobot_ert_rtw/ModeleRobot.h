@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model ModeleRobot.
  *
- * Model version                        : 1.1311
+ * Model version                        : 1.1317
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Thu May 14 01:38:49 2015
+ * Real-Time Workshop file generated on : Thu May 14 13:30:53 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Thu May 14 01:38:50 2015
+ * C/C++ source code generated on       : Thu May 14 13:30:54 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -66,7 +66,7 @@ typedef struct {
   real_T DelayInput1_DSTATE;           /* '<S10>/Delay Input1' */
   real_T DelayInput1_DSTATE_d;         /* '<S7>/Delay Input1' */
   real_T DureeMatch;                   /* '<Root>/COMPORTEMENT' */
-  real_T invMouv;                      /* '<Root>/COMPORTEMENT' */
+  real_T CouleurEquipe_memo;           /* '<Root>/COMPORTEMENT' */
   real_T Tempo;                        /* '<Root>/COMPORTEMENT' */
   real_T TempoInit;                    /* '<Root>/COMPORTEMENT' */
   real_T TempoTestActionneurs;         /* '<Root>/COMPORTEMENT' */
@@ -76,6 +76,7 @@ typedef struct {
   real_T inhibeObstacle;               /* '<Root>/COMPORTEMENT' */
   real_T TempoImage;                   /* '<Root>/COMPORTEMENT' */
   real_T local_Tempo;                  /* '<Root>/COMPORTEMENT' */
+  real_T Etape_GotoMarche;             /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_c1_ModeleRobot;    /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_COMPORTEMENT_ROBOT;/* '<Root>/COMPORTEMENT' */
   uint8_T is_COMPORTEMENT_ROBOT;       /* '<Root>/COMPORTEMENT' */
@@ -98,11 +99,13 @@ typedef struct {
   uint8_T is_STRATEGIE1;               /* '<Root>/COMPORTEMENT' */
   uint8_T was_STRATEGIE1;              /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_CLOCK;             /* '<Root>/COMPORTEMENT' */
-  uint8_T is_DEMO;                     /* '<Root>/COMPORTEMENT' */
-  uint8_T was_DEMO;                    /* '<Root>/COMPORTEMENT' */
+  uint8_T is_GOTO_BAS_DES_MARCHES;     /* '<Root>/COMPORTEMENT' */
+  uint8_T was_GOTO_BAS_DES_MARCHES;    /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_FONCTIONS_RECalAGE_PO;/* '<Root>/COMPORTEMENT' */
   uint8_T is_EVITEMENT;                /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_TESTS_CAPTEURS;    /* '<Root>/COMPORTEMENT' */
+  uint8_T is_MONTE_MARCHE;             /* '<Root>/COMPORTEMENT' */
+  uint8_T was_MONTE_MARCHE;            /* '<Root>/COMPORTEMENT' */
 } D_Work_ModeleRobot;
 
 /* External inputs (root inport signals with auto storage) */

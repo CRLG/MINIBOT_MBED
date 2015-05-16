@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model ModeleRobot.
  *
- * Model version                        : 1.1317
+ * Model version                        : 1.1337
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Thu May 14 13:30:53 2015
+ * Real-Time Workshop file generated on : Fri May 15 23:20:29 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Thu May 14 13:30:54 2015
+ * C/C++ source code generated on       : Fri May 15 23:20:29 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -70,13 +70,11 @@ typedef struct {
   real_T Tempo;                        /* '<Root>/COMPORTEMENT' */
   real_T TempoInit;                    /* '<Root>/COMPORTEMENT' */
   real_T TempoTestActionneurs;         /* '<Root>/COMPORTEMENT' */
-  real_T EvitementEnCours;             /* '<Root>/COMPORTEMENT' */
-  real_T x_old;                        /* '<Root>/COMPORTEMENT' */
-  real_T y_old;                        /* '<Root>/COMPORTEMENT' */
   real_T inhibeObstacle;               /* '<Root>/COMPORTEMENT' */
   real_T TempoImage;                   /* '<Root>/COMPORTEMENT' */
   real_T local_Tempo;                  /* '<Root>/COMPORTEMENT' */
   real_T Etape_GotoMarche;             /* '<Root>/COMPORTEMENT' */
+  real_T Tempo2;                       /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_c1_ModeleRobot;    /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_COMPORTEMENT_ROBOT;/* '<Root>/COMPORTEMENT' */
   uint8_T is_COMPORTEMENT_ROBOT;       /* '<Root>/COMPORTEMENT' */
@@ -102,10 +100,11 @@ typedef struct {
   uint8_T is_GOTO_BAS_DES_MARCHES;     /* '<Root>/COMPORTEMENT' */
   uint8_T was_GOTO_BAS_DES_MARCHES;    /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_FONCTIONS_RECalAGE_PO;/* '<Root>/COMPORTEMENT' */
-  uint8_T is_EVITEMENT;                /* '<Root>/COMPORTEMENT' */
   uint8_T is_active_TESTS_CAPTEURS;    /* '<Root>/COMPORTEMENT' */
   uint8_T is_MONTE_MARCHE;             /* '<Root>/COMPORTEMENT' */
   uint8_T was_MONTE_MARCHE;            /* '<Root>/COMPORTEMENT' */
+  uint8_T is_EVITEMENT;                /* '<Root>/COMPORTEMENT' */
+  uint8_T is_EVITEMENT1;               /* '<Root>/COMPORTEMENT' */
 } D_Work_ModeleRobot;
 
 /* External inputs (root inport signals with auto storage) */
@@ -125,6 +124,7 @@ typedef struct {
   real_T IN_SensDeplacement;           /* '<Root>/IN_SensDeplacement' */
   uint8_T IN_isDepression;             /* '<Root>/IN_isDepression' */
   uint8_T IN_isMurFresque;             /* '<Root>/IN_isMurFresque' */
+  real_T IN_inclinaison;               /* '<Root>/IN_inclinaison' */
 } ExternalInputs_ModeleRobot;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -184,25 +184,25 @@ struct Parameters_ModeleRobot_ {
   real_T SFunction_p5;                 /* Expression: PI
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p6;                 /* Expression: SERVO_BEQUILLE
+  real_T SFunction_p6;                 /* Expression: SERVO_BRAS_D
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p7;                 /* Expression: SERVO_BRAS_D
+  real_T SFunction_p7;                 /* Expression: SERVO_BRAS_D_FERME
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p8;                 /* Expression: SERVO_BRAS_D_FERME
+  real_T SFunction_p8;                 /* Expression: SERVO_BRAS_D_OUVERT
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p9;                 /* Expression: SERVO_BRAS_D_OUVERT
+  real_T SFunction_p9;                 /* Expression: SERVO_BRAS_G
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p10;                /* Expression: SERVO_BRAS_G
+  real_T SFunction_p10;                /* Expression: SERVO_BRAS_G_FERME
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p11;                /* Expression: SERVO_BRAS_G_FERME
+  real_T SFunction_p11;                /* Expression: SERVO_BRAS_G_OUVERT
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  real_T SFunction_p12;                /* Expression: SERVO_BRAS_G_OUVERT
+  real_T SFunction_p12;                /* Expression: SERVO_DOIGT
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
   real_T SFunction_p13;                /* Expression: SERVO_INCLINAISON

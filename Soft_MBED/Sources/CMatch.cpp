@@ -68,6 +68,8 @@ void CMatch::Initialise(void)
   _led2 = 0;
 	_led3 = 0;
 	_led4 = 0;
+
+	Application.m_capteurs.RAZ_PositionCodeur(CODEUR_INCLINAISON,0);
 }
 	
 
@@ -101,6 +103,9 @@ void CMatch::step(void)
 	//pour les obstacles on ne passe plus un booleen a la strategie mais la distance
 	ModeleRobot_U.IN_ObstacleAR=Application.m_capteurs.m_telemetres.m_distance[1];
 	ModeleRobot_U.IN_ObstacleAV=Application.m_capteurs.m_telemetres.m_distance[0];
+
+	//Codeur
+	ModeleRobot_U.IN_inclinaison=Application.m_capteurs.m_CumulCodeurPosition1;
 
 	//Capteurs TOR
 	//m_b_Etor3 est déjà pris pour piloter l'electrovanne
@@ -187,6 +192,10 @@ void CMatch::step(void)
         m_old_cde_servo[SERVO_BRAS_G] = ModeleRobot_Y.OUT_CommandeServo[SERVO_BRAS_G-1];
     } 
 	
+	if (ModeleRobot_Y.OUT_CommandeServo[SERVO_DOIGT-1] != m_old_cde_servo[SERVO_DOIGT]) { 
+        Application.m_servos_sd20.CommandePositionVitesse(SERVO_DOIGT, ModeleRobot_Y.OUT_CommandeServo[SERVO_DOIGT-1], ModeleRobot_Y.OUT_SpeedServo[SERVO_DOIGT-1]);
+        m_old_cde_servo[SERVO_DOIGT] = ModeleRobot_Y.OUT_CommandeServo[SERVO_DOIGT-1];
+    }
 
 	
 	//SORTIES de MODELE

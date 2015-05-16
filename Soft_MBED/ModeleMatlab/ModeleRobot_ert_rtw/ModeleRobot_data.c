@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model ModeleRobot.
  *
- * Model version                        : 1.1317
+ * Model version                        : 1.1337
  * Real-Time Workshop file version      : 7.4  (R2009b)  29-Jun-2009
- * Real-Time Workshop file generated on : Thu May 14 13:30:53 2015
+ * Real-Time Workshop file generated on : Fri May 15 23:20:29 2015
  * TLC version                          : 7.4 (Jul 14 2009)
- * C/C++ source code generated on       : Thu May 14 13:30:54 2015
+ * C/C++ source code generated on       : Fri May 15 23:20:29 2015
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Generic->32-bit x86 compatible
@@ -50,9 +50,6 @@ Parameters_ModeleRobot ModeleRobot_P = {
   3.1415926535897931E+000,             /* Expression: PI
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  16.0,                                /* Expression: SERVO_BEQUILLE
-                                        * Referenced by: '<Root>/COMPORTEMENT'
-                                        */
   14.0,                                /* Expression: SERVO_BRAS_D
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
@@ -71,13 +68,16 @@ Parameters_ModeleRobot ModeleRobot_P = {
   62.0,                                /* Expression: SERVO_BRAS_G_OUVERT
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
+  16.0,                                /* Expression: SERVO_DOIGT
+                                        * Referenced by: '<Root>/COMPORTEMENT'
+                                        */
   13.0,                                /* Expression: SERVO_INCLINAISON
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  143.0,                               /* Expression: SERVO_INCLINAISON_DROIT
+  8.0,                                 /* Expression: SERVO_INCLINAISON_DROIT
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
-  24.0,                                /* Expression: SERVO_INCLINAISON_PENCHE
+  80.0,                                /* Expression: SERVO_INCLINAISON_PENCHE
                                         * Referenced by: '<Root>/COMPORTEMENT'
                                         */
   0.02,                                /* Expression: Te

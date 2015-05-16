@@ -1058,3 +1058,16 @@ void CAsservissement::CommandeMouvementXY_TETA(float x, float y, float teta)
 	ModeAsservissement = cMODE_XY_TETA;
 }
 
+// -----------------------------------------------------------------------------------------------------------------------
+// Fonction qui initialise la position du robot avec des valeurs données
+void CAsservissement::setPosition_XYTeta(float x, float y, float teta)
+{
+  X_robot = x;
+  X_robot_prec = x;
+  Y_robot = y;
+  Y_robot_prec = y;
+  angle_robot = teta;
+  angle_robot_prec=teta;
+}	
+
+

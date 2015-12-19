@@ -316,7 +316,7 @@ void CGlobale::CheckReceptionTrame(void)
   // ___________________________
   if  (m_LaBotBox.m_COMMANDE_DISTANCE_ANGLE.isNewTrame() ) {
    m_asservissement.CommandeMouvementDistanceAngle(	m_LaBotBox.m_COMMANDE_DISTANCE_ANGLE.distance_consigne,
-   													m_LaBotBox.m_COMMANDE_DISTANCE_ANGLE.angle_consigne
+                                                    BRUTE2PHYS_angle_consigne(m_LaBotBox.m_COMMANDE_DISTANCE_ANGLE.angle_consigne)
    												  );
   }
 

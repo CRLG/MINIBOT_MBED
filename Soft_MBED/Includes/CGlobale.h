@@ -16,7 +16,9 @@
 #include "CEcranTactile.h"
 #include "CCamera.h"
 #include "CAsservissementSulfateuse.h"
-#include "ConfigSpecifiqueCoupe.h"
+#include "CAsservissementChariot.h"
+
+#define _ECRAN_LABOTBOX_
 
 typedef enum {
 	MODE_AUTONOME = 0,
@@ -24,7 +26,7 @@ typedef enum {
 	MODE_PILOTE_TERMINAL
 }tModeFonctionnement;
 
-// Pour le séquenceur de tâche
+// Pour le sÃ©quenceur de tÃ¢che
 #define PERIODE_TICK	(10)
 #define TEMPO_10msec	(10/PERIODE_TICK) 
 #define TEMPO_20msec	(20/PERIODE_TICK) 
@@ -41,16 +43,16 @@ typedef enum {
 
 
 // -----------------------------
-//! Classe de gestion des options d'exécution passees en ligne de commande
+//! Classe de gestion des options d'exÃ©cution passees en ligne de commande
 class CGlobale {
 public :
-	//! Le mode de fonctionnement (autonome ou piloté via Anaconbot)
+	//! Le mode de fonctionnement (autonome ou pilotÃ© via Anaconbot)
 	unsigned int ModeFonctionnement;
 
 	//le temps max de gonflage du ballon
 	unsigned int TempsMaxGonflage;
 
-	//! Le match à jouer
+	//! Le match Ã  jouer
 	CMatch m_match;
 	//! La gestion des roues gauches et droites
 	CRoues m_roues;
@@ -61,16 +63,16 @@ public :
 	//! Le gestionnaire d'EEPROM
 	CEEPROM m_eeprom;	
 	//! L'asservissement de vitesse/position du robot
-	// ATTENTION : l'instance de la classe asservisement doit être mise après l'instance de eeprom car CAsservissement utilise CEEPROM dans son constructeur
+	// ATTENTION : l'instance de la classe asservisement doit Ãªtre mise aprÃ¨s l'instance de eeprom car CAsservissement utilise CEEPROM dans son constructeur
 	CAsservissement m_asservissement;
 
 	//! La gestion de l'ecran tactile
 	CEcranTactile m_ecran_tactile;
 
-	//! La gestion de la caméra
+	//! La gestion de la camÃ©ra
 	CCamera m_camera;
 
-	//! Gestion des servos moteurs controlés par le SD20
+	//! Gestion des servos moteurs controlÃ©s par le SD20
 	CServoMoteurSD20 m_servos_sd20;
 	//! Gestion des servos moteurs AX
 	CServoMoteurAX m_servos_ax;
@@ -79,6 +81,9 @@ public :
 
  	//! Gestion de l'asservissement de la sulfateuse
 	CAsservissementSulfateuse m_asservissement_sulfateuse;
+	
+	//! Gestion de l'asservissement du chariot
+	CAsservissementChariot m_asservissement_chariot;
 
  
 	CGlobale();
@@ -105,16 +110,17 @@ private :
 	void ModeAutonome(void);
 	//! Reception RS232 en IRQ
 	void ReceiveRS232_Ecran(void);
-	//! Verifie et traite la reception de trames de l'écran
+	//! Verifie et traite la reception de trames de l'Ã©cran
 	void CheckReceptionTrameEcran(void);
-	//! Envoie les trames vers l'écran
+	//! Envoie les trames vers l'Ã©cran
 	void SendTramesEcran(void);
 	//! Reception RS232 en IRQ
 	void ReceiveRS232_Camera(void);
 	//! Verifie et traite la reception de trames de la camera
 	void CheckReceptionTrameCamera(void);
-	//! Envoie les trames vers la caméra
+	//! Envoie les trames vers la camÃ©ra
 	void SendTramesCamera(void);
+	void SendTramesEcranLaBotBox(bool activMode);
 
 	//! Sequenceur de taches en mode autonome
 	void SequenceurModeAutonome(void);
@@ -125,7 +131,7 @@ private :
 	
 	
 	
-	//! Gestion du mode piloté via Anaconbot
+	//! Gestion du mode pilotÃ© via Anaconbot
 	void ModePiloteLaBotBox(void);
 	//! Reception RS232 en IRQ
 	void ReceiveRS232_ModePiloteLaBotBox(void);
@@ -134,7 +140,7 @@ private :
 	//! Envoie les trames vers LABOTBOX
 	void SendTramesLaBotBox(void);
 
-	//! Gestion du mode piloté par terminal
+	//! Gestion du mode pilotÃ© par terminal
 	void ModePiloteTerminal(void);
  	//! Reception RS232 en IRQ
 	void ReceiveRS232_ModePiloteTerminal(void);
@@ -146,5 +152,6 @@ extern CGlobale Application;
 
 
 #endif 
+
 
 

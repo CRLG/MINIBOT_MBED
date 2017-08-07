@@ -2,7 +2,7 @@
 	\brief Classe qui contient toute l'application pour le mode de fonctionnement pilote via Anaconbot
 */
 #include "mbed.h"
-#include "RessourcesHardware.h" 
+#include "RessourcesHardware.h"
 #include "CGlobale.h"
 
 void SendTrameEcran(void);
@@ -10,7 +10,7 @@ void ScanI2C(void);
 
 //___________________________________________________________________________
  /*!
-   \brief Gestion du mode piloté via Anaconbot
+   \brief Gestion du mode pilotÃ© via Anaconbot
 
    \param --
    \return --
@@ -18,11 +18,11 @@ void ScanI2C(void);
 void CGlobale::ModePiloteTerminal(void)
 {
    	_rs232_pc_tx.printf("%c", 0xc);
-   _rs232_pc_tx.printf("\n\rCeci est le mode piloté par un terminal RS232\n\r");
-   // Initialise une IRQ sur réception RS232 d'ANACONBOT
-   _rs232_pc_rx.attach(&Application, &CGlobale::ReceiveRS232_ModePiloteTerminal);  	// Callback sur réception d'une donnée sur la RS232
-   // Initialise une IRQ sur réception RS232 de l'écran
-   _rs232_ecran_rx.attach(&Application, &CGlobale::ReceiveRS232_Ecran);  	// Callback sur réception d'une donnée sur la RS232
+   _rs232_pc_tx.printf("\n\rCeci est le mode pilotÃ© par un terminal RS232\n\r");
+   // Initialise une IRQ sur rÃ©ception RS232 d'ANACONBOT
+   _rs232_pc_rx.attach(&Application, &CGlobale::ReceiveRS232_ModePiloteTerminal);  	// Callback sur rÃ©ception d'une donnÃ©e sur la RS232
+   // Initialise une IRQ sur rÃ©ception RS232 de l'Ã©cran
+   _rs232_ecran_rx.attach(&Application, &CGlobale::ReceiveRS232_Ecran);  	// Callback sur rÃ©ception d'une donnÃ©e sur la RS232
 
    periodicTick.attach(&Application, &CGlobale::IRQ_Tick_ModePiloteTerminal, (float(PERIODE_TICK)/1000.0));
    
@@ -31,10 +31,10 @@ void CGlobale::ModePiloteTerminal(void)
     wait_ms(4000);
    
    while(1) {
-		if (Tick) {
+        CheckReceptionTrame();
+        CheckReceptionTrameEcran();
+        if (Tick) {
 			Tick = 0;
-			CheckReceptionTrame();
-			CheckReceptionTrameEcran();
 			SequenceurModePiloteTerminal();
 		}	
    }
@@ -103,14 +103,6 @@ void CGlobale::SequenceurModePiloteTerminal(void)
 	fincourse=!Application.m_capteurs.m_b_Etor2;
 	if(fincourse==1)
 		Application.m_capteurs.m_CumulCodeurPosition2 = 0;
-
-	//TO REMOVE: Pour tester les electro aimants
-	unsigned char action;
-	action=!Application.m_capteurs.m_b_Etor4;
-	if(action==1)
-		Application.m_moteurs.CommandeVitesse(MOTEUR_7, 1);
-	else
-		Application.m_moteurs.CommandeVitesse(MOTEUR_7, 0);
 		
     m_asservissement.CalculsMouvementsRobots();
 
@@ -233,7 +225,7 @@ void CGlobale::SequenceurModePiloteTerminal(void)
     if (compteur>2) { 
         compteur = 0; 
         toggle = !toggle;
-        //Application.m_Servos.CommandePositionVitesse(13, (toggle&0x1)==0?800:130, 100);
+        //Application.m_servos_sd20.CommandePositionVitesse(13, (toggle&0x1)==0?800:130, 100);
 
         //Application.m_moteurs.CommandeVitesse(MOTEUR_3, (toggle&0x1)==0?-50:50);
         //Application.m_moteurs.CommandeVitesse(MOTEUR_4, (toggle&0x1)==0?50:-50);
@@ -279,6 +271,7 @@ void ScanI2C(void)
    			de retarder le sequenceur
 */
 #define CONVERSION_VOLT2TRAME 10.0
+
 
 
 

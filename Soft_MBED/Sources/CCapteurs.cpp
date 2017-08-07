@@ -1,5 +1,5 @@
 /*! \file CCapteurs.cpp
-	\brief Classe qui contient les méthodes pour le dialogue avec ANACONBOT
+	\brief Classe qui contient les mÃ©thodes pour le dialogue avec ANACONBOT
 */
 #include "RessourcesHardware.h"
 #include "CGlobale.h"
@@ -16,6 +16,7 @@ CCapteurs::CCapteurs()
 {
   m_compteurErrCom_dsPIC1 = 0;
   m_compteurErrCom_dsPIC2 = 0;
+  color_sensor_addr = 41 << 1;
 }
 
 //___________________________________________________________________________
@@ -40,7 +41,7 @@ CCapteurs::~CCapteurs()
 */
 void CCapteurs::Init(void)
 {
- // Active les pulls up sur les entrées
+ // Active les pulls up sur les entrÃ©es
   _Etor1.mode(PullUp);
   _Etor2.mode(PullUp);
   //_Etor3.mode(PullUp);
@@ -69,14 +70,14 @@ void CCapteurs::Traitement(void)
 
   TraitementTensionBatterie();
   TraitementTelemetresUltrason();
-  TraitementDepartMatch();
-  TraitementCapteurRecalageBordure();
+  //TraitementDepartMatch();
+  //TraitementCapteurRecalageBordure();
 }
 
 
 //___________________________________________________________________________
  /*!
-   \brief Acquisition des entrées TOR brutes
+   \brief Acquisition des entrÃ©es TOR brutes
 
    \param --
    \return --
@@ -91,12 +92,24 @@ void CCapteurs::AcquisitionEntreesTOR(void)
   m_b_Etor6 		= _Etor6.read();
   m_b_Etor_CanRx 	= _Etor_CanRx.read();
   m_b_Etor_CanTx 	= _Etor_CanTx.read();
+
+  if (m_b_Etor4==1) // couleur de l'équipe, issue d'un interrupteur
+  {
+         Application.m_match.m_couleur_equipe = 1;//CBY
+         _led3.write(0);
+  }
+  else
+  {
+         Application.m_match.m_couleur_equipe = 0;//CBY
+         _led3.write(1);
+  }
 }
+
 
 
 //___________________________________________________________________________
  /*!
-   \brief Acquisition des entrées TOR brutes
+   \brief Acquisition des entrÃ©es TOR brutes
 
    \param --
    \return --
@@ -147,7 +160,7 @@ void CCapteurs::TraitementCapteurRecalageBordure(void)
 
 //___________________________________________________________________________
  /*!
-   \brief Lecture des données du dsPIC1
+   \brief Lecture des donnÃ©es du dsPIC1
 
    \param --
    \return --
@@ -162,14 +175,14 @@ void CCapteurs::Lecture_dsPIC1(void)
   //_i2c.write(ADRESSE_I2C_dsPIC1, m_buff, 2);
   //m_buff[15] = 0;
 
-  m_buff[8] = 0xFF; // Pour être certain de ne pas conserver un bon checksum du coup d'avant
+  m_buff[8] = 0xFF; // Pour Ãªtre certain de ne pas conserver un bon checksum du coup d'avant
   _i2c.read(ADRESSE_I2C_dsPIC1, m_buff, 9);
-  // Calcul le checksum à partir des données reçues
+  // Calcul le checksum Ã  partir des donnÃ©es reÃ§ues
   for (i=0; i<8; i++) {
     checksum+= m_buff[i];
   }
 
-  // Ne prend en compte les données reçues que si le checksum est bon
+  // Ne prend en compte les donnÃ©es reÃ§ues que si le checksum est bon
   if (checksum == m_buff[8]) {
     //_led2 = 1;
     m_CodeurPosition1 = (signed short)(m_buff[1] + (m_buff[0]<<8));
@@ -192,7 +205,7 @@ void CCapteurs::Lecture_dsPIC1(void)
 
 //___________________________________________________________________________
  /*!
-   \brief Lecture des données du dsPIC1
+   \brief Lecture des donnÃ©es du dsPIC1
 
    \param --
    \return --
@@ -202,14 +215,14 @@ void CCapteurs::Lecture_dsPIC2(void)
   unsigned char checksum=0;
   unsigned char i;
   
-  m_buff[8] = 0xFF; // Pour être certain de ne pas conserver un bon checksum du coup d'avant
+  m_buff[8] = 0xFF; // Pour Ãªtre certain de ne pas conserver un bon checksum du coup d'avant
   _i2c.read(ADRESSE_I2C_dsPIC2, m_buff, 9);
-  // Calcul le checksum à partir des données reçues
+  // Calcul le checksum Ã  partir des donnÃ©es reÃ§ues
   for (i=0; i<8; i++) {
     checksum+= m_buff[i];
   }
 
-  // Ne prend en compte les données reçues que si le checksum est bon
+  // Ne prend en compte les donnÃ©es reÃ§ues que si le checksum est bon
   if (checksum == m_buff[8]) {
     //_led4 = 1;
     m_CodeurPosition3 = (signed short)(m_buff[1] + (m_buff[0]<<8));
@@ -231,7 +244,7 @@ void CCapteurs::Lecture_dsPIC2(void)
 
 //___________________________________________________________________________
  /*!
-   \brief Initialisation d'un codeur a une position donnee (valeur par défaut 0)
+   \brief Initialisation d'un codeur a une position donnee (valeur par dÃ©faut 0)
 
    \param --
    \return --
@@ -268,8 +281,8 @@ void CCapteurs::TraitementDepartMatch(void)
 */ 
   // Met en forme une information pour le match
   // Comme Minibot n'a pas de tirette mais se sert du fait que 
-  // GrosBot est parti pour partir à son tour, il ne faut pas que Minibot
-  // parte dès qu'on met l'alimentation.
+  // GrosBot est parti pour partir Ã  son tour, il ne faut pas que Minibot
+  // parte dÃ¨s qu'on met l'alimentation.
   // Cette tempo permet de laisser le temps de positionner Minibot correctement
   if (cptAvantDebutMatch<0xFFFF) { cptAvantDebutMatch++; }
   DepartMatch = (cptConfirmationTirette > TEMPO_100msec) && (cptAvantDebutMatch > TEMPO_5sec);
@@ -285,6 +298,7 @@ void CCapteurs::TraitementDepartMatch(void)
    \param --
    \return --
 */
+#define COEF_TELEMETRE_ULTRASON (3.3 * 259.183)   // TODO : ajuster le coeff pour transformer en cm
 void  CCapteurs::TraitementTelemetresUltrason(void)
 {
   m_telemetres.Traitement();
@@ -295,7 +309,7 @@ void  CCapteurs::TraitementTelemetresUltrason(void)
   //m_ultrason_AR = MoyenneGlissante_float(_Eana1.read() * COEF_TELEMETRE_ULTRASON, m_tabFiltUS_AV, NBRE_ECH_FILTRAGE_CAPTEURS_US);
   //m_ultrason_AV = MoyenneGlissante_float(_Eana2.read() * COEF_TELEMETRE_ULTRASON, m_tabFiltUS_AR, NBRE_ECH_FILTRAGE_CAPTEURS_US);
 
-  // Confirme la présence d'un obstacle
+  // Confirme la prÃ©sence d'un obstacle
   m_obstacleDetecte_AR = Hysterisis(m_ultrason_AR, &m_obstacleDetecte_AR, SEUIL_CM_DETECTION_OBSTACLE-3, SEUIL_CM_DETECTION_OBSTACLE+3, 1, 0);
   m_obstacleDetecte_AV = Hysterisis(m_ultrason_AV, &m_obstacleDetecte_AV, SEUIL_CM_DETECTION_OBSTACLE-3, SEUIL_CM_DETECTION_OBSTACLE+3, 1, 0);
 
@@ -304,9 +318,9 @@ void  CCapteurs::TraitementTelemetresUltrason(void)
 
 // _____________________________________________________
 /*!
-   \brief Calcul la moyenne glissante sur un nombre donné d'échantillon pour des données de type char
+   \brief Calcul la moyenne glissante sur un nombre donnÃ© d'Ã©chantillon pour des donnÃ©es de type char
     \param currentVal : le dernier echantillon recu
-    \param *old_samples : le tableau des échantillons précédents
+    \param *old_samples : le tableau des Ã©chantillons prÃ©cÃ©dents
     \param samplesNumbers : le nombre d'echantillons pour le calcul la moyenne glissante
     \return La valeur moyenne entre le dernier echantillon recu et les (nbreEchantillonsMoyenne)  precedents echantillons
   
@@ -318,15 +332,15 @@ void  CCapteurs::TraitementTelemetresUltrason(void)
 float CCapteurs::MoyenneGlissante_float(float currentVal, float *buf_oldSamples, unsigned int samplesNumbers)
 {
   float moy=currentVal;
-  int i=0;  // Attention : doit être un "int" et non un "unsigned int" à cause du test de fin dans le "for"
+  int i=0;  // Attention : doit Ãªtre un "int" et non un "unsigned int" Ã  cause du test de fin dans le "for"
   
-  // Traite tous les échantillons sauf le 1er (index 0 du tableau) qui est un cas particulier
+  // Traite tous les Ã©chantillons sauf le 1er (index 0 du tableau) qui est un cas particulier
   for (i=(samplesNumbers-2); i>0; i--) {
 	  moy = moy + buf_oldSamples[i];
 	  buf_oldSamples[i] = buf_oldSamples[i-1];
   }
   
-  // Cas particulier pour la 1ère case du tableau où la nouvelle valeur ne provient pas de l'index précédent du tableau mais du nouvel échantillon
+  // Cas particulier pour la 1Ã¨re case du tableau oÃ¹ la nouvelle valeur ne provient pas de l'index prÃ©cÃ©dent du tableau mais du nouvel Ã©chantillon
   moy = moy + buf_oldSamples[0];
   buf_oldSamples[0] = currentVal;
   
@@ -364,6 +378,37 @@ unsigned char CCapteurs::Hysterisis (float vin, unsigned char *etat, float swapO
     } // else on ne fait rien
     return *etat;
 }
+
+void CCapteurs::Init_CapteurCouleur(void){
+	// Connect to the Color sensor and verify
+
+	    int green=1; //a relier a une sortie TOR
+
+	    char id_regval[1] = {146};
+	    char data[1] = {0};
+	    _i2c.write(color_sensor_addr,id_regval,1, true);
+	    _i2c.read(color_sensor_addr,data,1,false);
+
+	    if (data[0]==68) {
+	        green = 0;
+	        wait (2);
+	        green = 1;
+	        } else {
+	        green = 1;
+	    }
+
+	    // Initialize color sensor
+
+	    char timing_register[2] = {129,0};
+	    _i2c.write(color_sensor_addr,timing_register,2,false);
+
+	    char control_register[2] = {143,0};
+	    _i2c.write(color_sensor_addr,control_register,2,false);
+
+	    char enable_register[2] = {128,3};
+	    _i2c.write(color_sensor_addr,enable_register,2,false);
+}
+
 
 
 

@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25 /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\Includes /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\platform /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768 /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\drivers /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768\TOOLCHAIN_GCC_ARM /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\ModeleSCT /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017 /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\hal /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768\TARGET_NXP /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\ModeleSCT\src-gen /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768 /I..\..\..\..\..\..\..\..\..\User\J553583\99 PERSO\Robotique\2017\MINIBOT_MBED_2017_05_25\Sources">
+      <source file="..\..\..\Sources\CEcranTactile.cpp" lastModified="15ad1c8e380">
+         <include file="..\..\..\Includes\CEcranTactile.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\us_ticker_api.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\hal\ticker_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\critical.h" lastModified="15902a61948">
+      </source>
+      <source file="..\..\..\Sources\MessagerieEcranTactile.cpp" lastModified="15ad1c8dbb0">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameEcranTactile.h"/>
+         <include file="..\..\..\Includes\MessagerieEcranTactile.h"/>
+      </source>
+      <source file="..\..\..\Sources\CGlobale_ModePiloteLaBotBox.cpp" lastModified="15b2366fe20">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\Sources\CServoMoteurAX.cpp" lastModified="15c11e1c912">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+         <include file="..\..\..\Includes\CServoMoteurAX.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\LPC17xx.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\core_cm3.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\Includes\CCapteurs.h" lastModified="15b23246f10">
+         <include file="..\..\..\Includes\CTelemetres.h"/>
+         <include file="..\..\..\Includes\CdsPIC.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Ticker.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\drivers\TimerEvent.h"/>
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\SingletonPtr.h" lastModified="15902a61948">
+         <include file="..\..\..\mbed\platform\mbed_assert.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\pwmout_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Serial.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\Stream.h"/>
+         <include file="..\..\..\mbed\drivers\SerialBase.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+         <include file="..\..\..\mbed\hal\serial_api.h"/>
+      </source>
+      <source file="..\..\..\ModeleSCT\src-gen\IA.cpp" lastModified="15c46e93c7a">
+         <include file="..\..\..\ModeleSCT\src-gen\IA.h"/>
+      </source>
+      <source file="..\..\..\Sources\CAsservissementChariot.cpp" lastModified="15ad2b114e8">
+         <include file="..\..\..\Includes\CAsservissementChariot.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\LowPowerTicker.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\Ticker.h"/>
+         <include file="..\..\..\mbed\hal\lp_ticker_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\PortOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\port_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\core_cm3.h" lastModified="15902a18d38">
+         <include file="..\..\..\mbed\TARGET_LPC1768\core_cmInstr.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\Includes\CAsservissementChariot.h" lastModified="15ab7518750">
+      </source>
+      <source file="..\..\..\mbed\platform\CircularBuffer.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\Includes\CTrameEcranTactile.h" lastModified="15925a6bf10">
+      </source>
+      <source file="..\..\..\Sources\CTrameEcranTactile.cpp" lastModified="15925a75b50">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameEcranTactile.h"/>
+      </source>
+      <source file="..\..\..\Sources\CGlobale_ModePiloteTerminal.cpp" lastModified="15925a743e0">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\analogout_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Stream.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\FileLike.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\ticker_api.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Timer.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\ticker_api.h"/>
+      </source>
+      <source file="..\..\..\Sources\CTrameLaBotBox.cpp" lastModified="15925a75b50">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameLaBotBox.h"/>
+      </source>
+      <source file="..\..\..\Sources\CMoteurs.cpp" lastModified="15925a74bb0">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\CMoteurs.h"/>
+         <include file="..\..\..\Includes\CdsPIC.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\PortIn.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\port_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\Includes\CEcranTactile.h" lastModified="15ad1c8e380">
+         <include file="..\..\..\Includes\MessagerieEcranTactile.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\LocalFileSystem.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\FileSystemLike.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\CThunk.h" lastModified="15902a60d90">
+      </source>
+      <source file="..\..\..\Sources\CCamera.cpp" lastModified="15925a73440">
+         <include file="..\..\..\Includes\CCamera.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\LowPowerTimer.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\Timer.h"/>
+         <include file="..\..\..\mbed\hal\lp_ticker_api.h"/>
+      </source>
+      <source file="..\..\..\Sources\ConfigFile.cpp" lastModified="15925a74bb0">
+         <include file="..\..\..\Includes\ConfigFile.h"/>
+      </source>
+      <source file="..\..\..\Includes\CAsservissementSulfateuse.h" lastModified="15925a69fd0">
+      </source>
+      <source file="..\..\..\mbed\platform\Callback.h" lastModified="15902a61948">
+         <include file="..\..\..\mbed\platform\mbed_assert.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\DigitalInOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\gpio_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\SPI.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+         <include file="..\..\..\mbed\hal\spi_api.h"/>
+         <include file="..\..\..\mbed\platform\SingletonPtr.h"/>
+         <include file="..\..\..\mbed\platform\CThunk.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+         <include file="..\..\..\mbed\platform\CircularBuffer.h"/>
+         <include file="..\..\..\mbed\platform\FunctionPointer.h"/>
+         <include file="..\..\..\mbed\platform\Transaction.h"/>
+      </source>
+      <source file="..\..\..\Sources\CTelemetres.cpp" lastModified="15b43138b30">
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTelemetres.h"/>
+      </source>
+      <source file="..\..\..\mbed_config.h" lastModified="15926f83d80">
+      </source>
+      <source file="..\..\..\Includes\CTelemetres.h" lastModified="15b4314db20">
+      </source>
+      <source file="..\..\..\mbed\drivers\BusInOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\drivers\DigitalInOut.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\I2CSlave.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\i2c_api.h"/>
+      </source>
+      <source file="..\..\..\Includes\MessagerieLaBotBox.h" lastModified="15aec2925a0">
+         <include file="..\..\..\Includes\CTrameLaBotBox.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\gpio_api.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\buffer.h" lastModified="15902a61178">
+      </source>
+      <source file="..\..\..\mbed\platform\toolchain.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\platform\mbed_preprocessor.h"/>
+      </source>
+      <source file="..\..\..\mbed\mbed.h" lastModified="1592abee658">
+         <include file="..\..\..\mbed_config.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\platform\mbed_error.h"/>
+         <include file="..\..\..\mbed\platform\mbed_interface.h"/>
+         <include file="..\..\..\mbed\platform\mbed_assert.h"/>
+         <include file="..\..\..\mbed\drivers\DigitalIn.h"/>
+         <include file="..\..\..\mbed\drivers\DigitalOut.h"/>
+         <include file="..\..\..\mbed\drivers\DigitalInOut.h"/>
+         <include file="..\..\..\mbed\drivers\BusIn.h"/>
+         <include file="..\..\..\mbed\drivers\BusOut.h"/>
+         <include file="..\..\..\mbed\drivers\BusInOut.h"/>
+         <include file="..\..\..\mbed\drivers\PortIn.h"/>
+         <include file="..\..\..\mbed\drivers\PortInOut.h"/>
+         <include file="..\..\..\mbed\drivers\PortOut.h"/>
+         <include file="..\..\..\mbed\drivers\AnalogIn.h"/>
+         <include file="..\..\..\mbed\drivers\AnalogOut.h"/>
+         <include file="..\..\..\mbed\drivers\PwmOut.h"/>
+         <include file="..\..\..\mbed\drivers\Serial.h"/>
+         <include file="..\..\..\mbed\drivers\SPI.h"/>
+         <include file="..\..\..\mbed\drivers\SPISlave.h"/>
+         <include file="..\..\..\mbed\drivers\I2C.h"/>
+         <include file="..\..\..\mbed\drivers\I2CSlave.h"/>
+         <include file="..\..\..\mbed\drivers\Ethernet.h"/>
+         <include file="..\..\..\mbed\drivers\CAN.h"/>
+         <include file="..\..\..\mbed\drivers\RawSerial.h"/>
+         <include file="..\..\..\mbed\drivers\Timer.h"/>
+         <include file="..\..\..\mbed\drivers\Ticker.h"/>
+         <include file="..\..\..\mbed\drivers\Timeout.h"/>
+         <include file="..\..\..\mbed\drivers\LowPowerTimeout.h"/>
+         <include file="..\..\..\mbed\drivers\LowPowerTicker.h"/>
+         <include file="..\..\..\mbed\drivers\LowPowerTimer.h"/>
+         <include file="..\..\..\mbed\drivers\LocalFileSystem.h"/>
+         <include file="..\..\..\mbed\drivers\InterruptIn.h"/>
+         <include file="..\..\..\mbed\platform\wait_api.h"/>
+         <include file="..\..\..\mbed\hal\sleep_api.h"/>
+         <include file="..\..\..\mbed\platform\rtc_time.h"/>
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\platform\FunctionPointer.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\analogin_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\Sources\CServoMoteurSD20.cpp" lastModified="15b2376f410">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+         <include file="..\..\..\Includes\CServoMoteurSD20.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\PlatformMutex.h" lastModified="15902a61178">
+      </source>
+      <source file="..\..\..\mbed\hal\spi_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+         <include file="..\..\..\mbed\hal\buffer.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\mbed_error.h" lastModified="15902a60d90">
+      </source>
+      <source file="..\..\..\Sources\CTrameCamera.cpp" lastModified="15925a75b50">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameCamera.h"/>
+      </source>
+      <source file="..\..\..\Sources\CMatch.cpp" lastModified="15c46df3f8d">
+         <include file="..\..\..\Includes\CMatch.h"/>
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+         <include file="..\..\..\Includes\ConfigSpecifiqueCoupe.h"/>
+      </source>
+      <source file="..\..\..\Sources\CRoues.cpp" lastModified="15c46781ed5">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\PinNames.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PortNames.h" lastModified="15902a179b0">
+      </source>
+      <source file="..\..\..\Sources\RessoucesHardware.cpp" lastModified="15964f83810">
+      </source>
+      <source file="..\..\..\mbed\platform\FunctionPointer.h" lastModified="15902a61560">
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\objects.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PortNames.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PeripheralNames.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\PinNames.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\gpio_object.h"/>
+      </source>
+      <source file="..\..\..\Sources\CEEPROM.cpp" lastModified="15afa0209d0">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\gpio_irq_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\DigitalOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\gpio_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\SPISlave.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\spi_api.h"/>
+      </source>
+      <source file="..\..\..\Sources\main.cpp" lastModified="15965092800">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\dma_api.h" lastModified="15902a61178">
+      </source>
+      <source file="..\..\..\mbed\drivers\LowPowerTimeout.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\lp_ticker_api.h"/>
+         <include file="..\..\..\mbed\drivers\LowPowerTicker.h"/>
+      </source>
+      <source file="..\..\..\Sources\CAsservissementSulfateuse.cpp" lastModified="15925a73828">
+         <include file="..\..\..\Includes\CAsservissementSulfateuse.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\can_helper.h" lastModified="15902a60d90">
+      </source>
+      <source file="..\..\..\Includes\CEEPROM.h" lastModified="15925a6a7a0">
+         <include file="..\..\..\Includes\ConfigFile.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\gpio_object.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\platform\mbed_assert.h"/>
+      </source>
+      <source file="..\..\..\Includes\CTrameCamera.h" lastModified="15925a6bf10">
+      </source>
+      <source file="..\..\..\Includes\CRoues.h" lastModified="15925a6b740">
+      </source>
+      <source file="..\..\..\mbed\hal\sleep_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\DirHandle.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\drivers\FileHandle.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\I2C.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\i2c_api.h"/>
+         <include file="..\..\..\mbed\platform\SingletonPtr.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+         <include file="..\..\..\mbed\platform\CThunk.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+         <include file="..\..\..\mbed\platform\FunctionPointer.h"/>
+      </source>
+      <source file="..\..\..\Includes\CServoMoteurSD20.h" lastModified="15925a6b740">
+      </source>
+      <source file="..\..\..\Includes\CMoteurs.h" lastModified="15925a6af70">
+      </source>
+      <source file="..\..\..\mbed\drivers\FileLike.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\drivers\FileBase.h"/>
+         <include file="..\..\..\mbed\drivers\FileHandle.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\core_cmInstr.h" lastModified="15902a19508">
+      </source>
+      <source file="..\..\..\Includes\CTrameCAN.h" lastModified="15925a6bf10">
+      </source>
+      <source file="..\..\..\mbed\drivers\BusIn.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\DigitalIn.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\Includes\ConfigFile.h" lastModified="15925a6b358">
+         <include file="..\..\..\mbed\mbed.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\AnalogIn.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\analogin_api.h"/>
+         <include file="..\..\..\mbed\platform\SingletonPtr.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\Includes\MessagerieCamera.h" lastModified="15925a6c6e0">
+         <include file="..\..\..\Includes\CTrameCamera.h"/>
+      </source>
+      <source file="..\..\..\Sources\CTrameCAN.cpp" lastModified="15925a75b50">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameCAN.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Timeout.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\drivers\Ticker.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\serial_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\hal\buffer.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\DigitalIn.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\gpio_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\Includes\CAsservissement.h" lastModified="15c40510920">
+      </source>
+      <source file="..\..\..\mbed\drivers\FileSystemLike.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\FileBase.h"/>
+         <include file="..\..\..\mbed\drivers\FileHandle.h"/>
+         <include file="..\..\..\mbed\drivers\DirHandle.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\Ethernet.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+      </source>
+      <source file="..\..\..\Includes\CCamera.h" lastModified="15925a6a7a0">
+         <include file="..\..\..\Includes\MessagerieCamera.h"/>
+      </source>
+      <source file="..\..\..\ModeleSCT\src-gen\sc_types.h" lastModified="15bc941dec8">
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\objects.h"/>
+      </source>
+      <source file="..\..\..\Includes\MessagerieEcranTactile.h" lastModified="15ad1c8dbb0">
+         <include file="..\..\..\Includes\CTrameEcranTactile.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\LPC17xx.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis_nvic.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\InterruptIn.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\gpio_api.h"/>
+         <include file="..\..\..\mbed\hal\gpio_irq_api.h"/>
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\BusOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\drivers\DigitalOut.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\FileBase.h" lastModified="15902a62118">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\platform\SingletonPtr.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\RawSerial.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\SerialBase.h"/>
+         <include file="..\..\..\mbed\hal\serial_api.h"/>
+      </source>
+      <source file="..\..\..\Includes\CdsPIC.h" lastModified="15925a6a7a0">
+      </source>
+      <source file="..\..\..\mbed\drivers\CAN.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\can_api.h"/>
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PeripheralNames.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\PinNames.h"/>
+      </source>
+      <source file="..\..\..\Includes\ConfigSpecifiqueCoupe.h" lastModified="15925a6af70">
+         <include file="..\..\..\Includes\CMoteurs.h"/>
+         <include file="..\..\..\Includes\CServoMoteurSD20.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\mbed_interface.h" lastModified="15902a61178">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\Includes\RessourcesHardware.h" lastModified="15ad1c8e380">
+         <include file="..\..\..\mbed\mbed.h"/>
+      </source>
+      <source file="..\..\..\Sources\CGlobale.cpp" lastModified="15b19bc3b10">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\FileHandle.h" lastModified="15902a61560">
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis_nvic.h" lastModified="15902a179b0">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\cmsis.h"/>
+      </source>
+      <source file="..\..\..\ModeleSCT\src-gen\IA.h" lastModified="15c46d3eeaa">
+         <include file="..\..\..\ModeleSCT\src-gen\sc_types.h"/>
+         <include file="..\..\..\ModeleSCT\src-gen\StatemachineInterface.h"/>
+      </source>
+      <source file="..\..\..\Includes\CMatch.h" lastModified="15bf313c617">
+         <include file="..\..\..\ModeleSCT\src-gen\IA.h"/>
+         <include file="..\..\..\Includes\CMoteurs.h"/>
+         <include file="..\..\..\Includes\CServoMoteurSD20.h"/>
+         <include file="..\..\..\Includes\CServoMoteurAX.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\Transaction.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\platform\FunctionPointer.h"/>
+      </source>
+      <source file="..\..\..\Sources\CCapteurs.cpp" lastModified="15bfd3fe6d1">
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+         <include file="..\..\..\Includes\CCapteurs.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\TimerEvent.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\hal\ticker_api.h"/>
+         <include file="..\..\..\mbed\hal\us_ticker_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\mbed_assert.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\mbed_preprocessor.h"/>
+      </source>
+      <source file="..\..\..\ModeleSCT\src-gen\StatemachineInterface.h" lastModified="158f27435a0">
+      </source>
+      <source file="..\..\..\Sources\MessagerieLaBotBox.cpp" lastModified="15aec13b940">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\MessagerieLaBotBox.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\mbed_preprocessor.h" lastModified="15902a60d90">
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\device\system_LPC17xx.h" lastModified="15902a179b0">
+      </source>
+      <source file="..\..\..\mbed\hal\port_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\i2c_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\hal\buffer.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\SerialBase.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\drivers\Stream.h"/>
+         <include file="..\..\..\mbed\platform\Callback.h"/>
+         <include file="..\..\..\mbed\hal\serial_api.h"/>
+         <include file="..\..\..\mbed\platform\toolchain.h"/>
+         <include file="..\..\..\mbed\platform\CThunk.h"/>
+         <include file="..\..\..\mbed\hal\dma_api.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\wait_api.h" lastModified="15902a60d90">
+      </source>
+      <source file="..\..\..\Includes\CGlobale.h" lastModified="15adbd64890">
+         <include file="..\..\..\Includes\CMatch.h"/>
+         <include file="..\..\..\Includes\CAsservissement.h"/>
+         <include file="..\..\..\Includes\CRoues.h"/>
+         <include file="..\..\..\Includes\CLaBotBox.h"/>
+         <include file="..\..\..\Includes\CCapteurs.h"/>
+         <include file="..\..\..\Includes\CEEPROM.h"/>
+         <include file="..\..\..\Includes\CServoMoteurSD20.h"/>
+         <include file="..\..\..\Includes\CServoMoteurAX.h"/>
+         <include file="..\..\..\Includes\CMoteurs.h"/>
+         <include file="..\..\..\Includes\CEcranTactile.h"/>
+         <include file="..\..\..\Includes\CCamera.h"/>
+         <include file="..\..\..\Includes\CAsservissementSulfateuse.h"/>
+         <include file="..\..\..\Includes\CAsservissementChariot.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\AnalogOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\analogout_api.h"/>
+         <include file="..\..\..\mbed\platform\PlatformMutex.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\PortInOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\port_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\rtc_time.h" lastModified="15902a61178">
+      </source>
+      <source file="..\..\..\Includes\CTrameLaBotBox.h" lastModified="15925a6bf10">
+      </source>
+      <source file="..\..\..\Sources\MessagerieCamera.cpp" lastModified="15925a76320">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CTrameCamera.h"/>
+         <include file="..\..\..\Includes\MessagerieCamera.h"/>
+      </source>
+      <source file="..\..\..\Sources\CGlobale_ModeAutonome.cpp" lastModified="15adbd64890">
+         <include file="..\..\..\mbed\mbed.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+         <include file="..\..\..\Includes\CGlobale.h"/>
+         <include file="..\..\..\Includes\ConfigSpecifiqueCoupe.h"/>
+      </source>
+      <source file="..\..\..\Includes\CServoMoteurAX.h" lastModified="15c11da31b3">
+      </source>
+      <source file="..\..\..\mbed\TARGET_LPC1768\core_cmFunc.h" lastModified="15902a19508">
+      </source>
+      <source file="..\..\..\Includes\CLaBotBox.h" lastModified="15aec2925a0">
+         <include file="..\..\..\Includes\MessagerieLaBotBox.h"/>
+      </source>
+      <source file="..\..\..\mbed\drivers\PwmOut.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\platform\platform.h"/>
+         <include file="..\..\..\mbed\hal\pwmout_api.h"/>
+         <include file="..\..\..\mbed\platform\critical.h"/>
+      </source>
+      <source file="..\..\..\mbed\platform\platform.h" lastModified="15902a61d30">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\PinNames.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PeripheralNames.h"/>
+      </source>
+      <source file="..\..\..\Sources\CLaBotBox.cpp" lastModified="15b236d10d0">
+         <include file="..\..\..\Includes\CLaBotBox.h"/>
+         <include file="..\..\..\Includes\RessourcesHardware.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\can_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\PinNames.h"/>
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\PeripheralNames.h"/>
+         <include file="..\..\..\mbed\hal\can_helper.h"/>
+      </source>
+      <source file="..\..\..\mbed\hal\lp_ticker_api.h" lastModified="15902a60d90">
+         <include file="..\..\..\mbed\TARGET_LPC1768\TARGET_NXP\TARGET_LPC176X\TARGET_MBED_LPC1768\device.h"/>
+         <include file="..\..\..\mbed\hal\ticker_api.h"/>
+      </source>
+   </includePath>
+</dependencies>

@@ -5,20 +5,19 @@
 #ifndef _ASSERVISSEMENT_H_
 #define _ASSERVISSEMENT_H_
 
-//    ROBOT PROTO GROBBOT 2014 
+//    ROBOT PROTO MINIBOT 2017
 // ------------------------------
-#define DISTANCE_PAR_PAS_CODEUR_G					0.0337167165590043		// Roue gauche	100cm => 25966 pas
-#define DISTANCE_PAR_PAS_CODEUR_D					0.0337167165590043	// Roue droite	100cm => 26031 pas	 moyenne 25999
-#define VOIE_ROBOT								12.0			// Distance entre les 2 roues [cm]
-//#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		(1 / VOIE_ROBOT)	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
-#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		0.083333333	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
+#define DISTANCE_PAR_PAS_CODEUR_G					0.00393		// Roue gauche était 0.003884241
+#define DISTANCE_PAR_PAS_CODEUR_D					0.00393	// Roue droite était 0.003884241
+#define VOIE_ROBOT								16.9			// Distance entre les 2 roues [cm]
+#define FACTEUR_CONV_DELTA_DIST_VERS_ANGLE		(1 / VOIE_ROBOT)	// (2 * Pi) / ( 2 * Pi * VOIE_ROBOT) => Resultat en rad
 #define te 0.02 													// s	Temps entre chaque appel de la tache asservissement
-#define M_PI (3.14f)
+//#define M_PI (3.14f)
 
 #define NBRE_POINTS_CARTO_ERREUR 13
 const float ini_conv_erreur_dist_vitesse_cur_x[NBRE_POINTS_CARTO_ERREUR] = {-40, -20, -10, -4, -2, -1, 0, 1, 2, 4, 10, 20, 40};							// [cm]
 const float ini_conv_erreur_dist_vitesse_1_cur[NBRE_POINTS_CARTO_ERREUR] = {-50, -35, -25, -11, -2, -1, 0, 1, 2, 11, 25, 35, 50};						// [cm/s] Carto perfo 0% environ 30cm/s2
-const float ini_conv_erreur_dist_vitesse_2_cur[NBRE_POINTS_CARTO_ERREUR] = {-130, -100, -65, -35, -8, -4, 0, 4, 8, 35, 65, 100, 130};					// [cm/s] Carto perfo 100% environ 190cm/s2
+const float ini_conv_erreur_dist_vitesse_2_cur[NBRE_POINTS_CARTO_ERREUR] = {-87, -67, -43, -23, -5, -3, 0, 3, 5, 23, 43, 67, 87};					// [cm/s] Carto perfo 100% environ 190cm/s2
 	
 const float ini_conv_erreur_angle_vitesse_cur_x[NBRE_POINTS_CARTO_ERREUR] = {-1.6, -0.8, -0.4, -0.2, -0.1, -0.05, 0, 0.05, 0.1, 0.2, 0.4, 0.8, 1.6};	// [rad]
 const float ini_conv_erreur_angle_vitesse_1_cur[NBRE_POINTS_CARTO_ERREUR] = {-4, -2.8, -2, -1.4, -1, -0.5, 0, 0.5, 1, 1.4, 2, 2.8, 4};					// [rad/s] Carto perfo 0% environ 5rad/s2
@@ -37,19 +36,19 @@ typedef enum {
 } tTypeAsservissement;
 
 // -----------------------------
-//! Classe de gestion des options d'exécution passees en ligne de commande
+//! Classe de gestion des options d'exÃ©cution passees en ligne de commande
 class CAsservissement {
 public :
-   // Les paramètres de l'asservissement
-	int cde_max;					// %	Commande maximum normalisée pour saturer la régulation
-	int cde_min;					// %	Commande minimum normalisée pour saturer la régulation
-	float kp_distance;				// 		Gain proportionnel pour la régulation en distance
-	float ki_distance;				// 		Gain intégral pour la régulation en distance
-	float kp_angle;					// 		Gain proportionnel pour la régulation en angle
-	float ki_angle;					// 		Gain intégral pour la régulation en angle
-	float k_angle;					//		Coeff de filtrage pour le terme dérivé
-	float seuil_conv_distance;		// cm	Erreur en dessous de laquelle on considère que le robot est en position sur la distance
-	float seuil_conv_angle;			// rad	Erreur en dessous de laquelle on considère que le robot est en position sur l'angle
+   // Les paramÃ¨tres de l'asservissement
+	int cde_max;					// %	Commande maximum normalisÃ©e pour saturer la rÃ©gulation
+	int cde_min;					// %	Commande minimum normalisÃ©e pour saturer la rÃ©gulation
+	float kp_distance;				// 		Gain proportionnel pour la rÃ©gulation en distance
+	float ki_distance;				// 		Gain intÃ©gral pour la rÃ©gulation en distance
+	float kp_angle;					// 		Gain proportionnel pour la rÃ©gulation en angle
+	float ki_angle;					// 		Gain intÃ©gral pour la rÃ©gulation en angle
+	float k_angle;					//		Coeff de filtrage pour le terme dÃ©rivÃ©
+	float seuil_conv_distance;		// cm	Erreur en dessous de laquelle on considÃ¨re que le robot est en position sur la distance
+	float seuil_conv_angle;			// rad	Erreur en dessous de laquelle on considÃ¨re que le robot est en position sur l'angle
 	unsigned int compteur_max;		// 		Nombre de coups d'horloge (N*te) avant de confirmer que le robot est en position
 	int zone_morte_D;
 	int zone_morte_G;
@@ -131,7 +130,7 @@ public :
 	float consigne_vitesse_rotation_filt;
 	float facteur_correction_avance_angle;
 	float seuil_vitesse_diag_blocage;		// cm/s
-	float commande_min_diag_blocage;		// En cas de blocage l'intégrateur charge rapidement à des valeurs importantes
+	float commande_min_diag_blocage;		// En cas de blocage l'intÃ©grateur charge rapidement Ã  des valeurs importantes
 	float seuil_vitesse_diag_rotation;	// rad/s
 	int seuil_max_compteur_diag_blocage;	// 25 * te,5s
 	int inc_diag_blocage;
@@ -140,7 +139,7 @@ public :
 	char diag_blocage;
 	char convergence_rapide;
 	char convergence;
-	char convergence_conf;						// 0: Mvt en cours, 1: Convergence ok, 2: Blocage détecté
+	char convergence_conf;						// 0: Mvt en cours, 1: Convergence ok, 2: Blocage dÃ©tectÃ©
 	char saturation_distance;
 	char saturation_angle;
 	char saturation_moteur_D;
@@ -157,7 +156,7 @@ public :
 	float offset_vitesse_rotation;				//	[rad/s-2]
 	float vitesse_avance_max;					//	[cm/s]
 	float vitesse_rotation_max;					//	[rad/s]
-	float Ind_perfo;							//	coeff entre 0 et 1 (possibilité d'extrapoler mais attention car pas de limitation)
+	float Ind_perfo;							//	coeff entre 0 et 1 (possibilitÃ© d'extrapoler mais attention car pas de limitation)
 
 	float conv_erreur_dist_vitesse_cur_x[NBRE_POINTS_CARTO_ERREUR];		// [cm]
 	float conv_erreur_dist_vitesse_1_cur[NBRE_POINTS_CARTO_ERREUR];		// [cm/s]
@@ -174,7 +173,7 @@ public :
 	CAsservissement();
 	~CAsservissement();
 
-	//! Réinitilise tous les paramètres et valeurs
+	//! RÃ©initilise tous les paramÃ¨tres et valeurs
 	void Init(void);	
 
  	//! Bornage de l'angle pour les mouvement distance/angle
@@ -211,4 +210,5 @@ private :
 
 
 #endif
+
 

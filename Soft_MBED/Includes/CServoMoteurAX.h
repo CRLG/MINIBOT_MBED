@@ -7,7 +7,7 @@
 
 
 // -----------------------------
-//! Classe de gestion des options d'exécution passees en ligne de commande
+//! Classe de gestion des options d'exÃ©cution passees en ligne de commande
 class CServoMoteurAX {
 #define NBRE_SERVOS_AX              255
 #define RELACHE_SERVO_OFF           0xFFFF
@@ -23,6 +23,7 @@ class CServoMoteurAX {
 #define AX12_REG_CW_LIMIT 0x06
 #define AX12_REG_CCW_LIMIT 0x08
 #define AX12_REG_RETURN_LEVEL 0x10
+#define AX12_REG_TORQUE_ENABLE 0x18
 #define AX12_REG_LED_STATE 0x19
 #define AX12_REG_GOAL_POSITION 0x1E
 #define AX12_REG_MOVING_SPEED 0x20
@@ -51,8 +52,9 @@ public :
     void CommandePositionVitesse(unsigned char id, unsigned int position, unsigned int vitesse);
    	void CommandePosition(unsigned char id, unsigned int position);
 	void CommandeVitesse(unsigned char id, unsigned int vitesse);
+	void Relache(unsigned char id);
 
-    // API de contrôle des servos
+    // API de contrÃ´le des servos
     /** Set the mode of the servo
      * @param unsigned char id, the Bus ID of the servo 1-255 
      * @param mode
@@ -135,8 +137,16 @@ public :
      */
     int setLedState(unsigned char id, int state);
 
+    /** Set the torque enable state
+     *
+     * @param unsigned char id, the Bus ID of the servo 1-255
+     * @param state
+     */
+    int setTorqueEnable(unsigned char id, int state);
+
     /** Send the broadcast "trigger" command, to activate any outstanding registered commands
      */
+
     void trigger(void);
 
     int write(unsigned char ID, int start, int length, char* data, int flag=0);
@@ -146,10 +156,11 @@ private :
     void readEEPROM(void);
 
 private : 
-   // Baudrate de la communication série
+   // Baudrate de la communication sÃ©rie
     int _baud;
 };
 
 
 #endif // _SERVO_MOTEUR_AX_H_
+
 

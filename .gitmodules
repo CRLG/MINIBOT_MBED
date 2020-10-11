@@ -1,3 +1,12 @@
 [submodule "Simulia"]
 	path = Simulia
 	url = https://github.com/CRLG/LABOTBOX
+[submodule "Soft_MBED/ext/CppRobLib"]
+	path = Soft_MBED/ext/CppRobLib
+	url = https://github.com/CRLG/CppRobLib
+[submodule "Soft_MBED/ext/mbed-common-rob"]
+	path = Soft_MBED/ext/mbed-common-rob
+	url = https://github.com/CRLG/mbed-common-rob
+[submodule "Soft_MBED/ext/mbed-os"]
+	path = Soft_MBED/ext/mbed-os
+	url = https://github.com/CRLG/mbed-os

@@ -30,7 +30,7 @@ AnalogIn   _Eana4(p19);
 AnalogIn   _Eana5(p20);
 
 // __________________________________________________SORTIES TOUT OU RIEN
-DigitalOut 	_Mot1_Sens1(p22); 
+DigitalOut 	_Mot1_Sens1(p22);
 DigitalOut 	_Mot1_Sens2(p23);
 DigitalOut 	_Mot2_Sens1(p25);
 DigitalOut 	_Mot2_Sens2(p26);
@@ -44,18 +44,15 @@ PwmOut _Mot2_PWM (p24);
 
 // __________________________________________________ TIMERS
 Ticker periodicTick;
+Timer  _Global_Timer;  // pour connaitre l'heure depuis le démarrage avec résolution usec (attention : débordement au bout de 30minutes)
 
 
 // __________________________________________________ RS232
 Serial _rs232_pc_tx(USBTX, USBRX);
 Serial _rs232_pc_rx(USBTX, USBRX);
 
-Serial _rs232_ecran_tx(p13, p14);
-Serial _rs232_ecran_rx(p13, p14);
-
-Serial _rs232_camera_tx(p28, p27);
-Serial _rs232_camera_rx(p28, p27);
-
+Serial _rs232_xbee_network_tx(p13, p14);
+Serial _rs232_xbee_network_rx(p13, p14);
 
 // __________________________________________________ I2C
 I2C _i2c(p9, p10); //SDA, SCL pour les servos
@@ -65,6 +62,6 @@ LocalFileSystem local("local");
 
 // __________________________________________________ RS232 de pilotage des servos AX
 Serial _ax12_serial (p28, p27);
-    
+
 
 

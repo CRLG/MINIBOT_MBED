@@ -1,6 +1,7 @@
 #ifndef _SRF08_H_
 #define _SRF08_H_
 
+#include "CTelemetresBase.h"
 
 // Constantes 
 // ---------------------------------
@@ -50,23 +51,27 @@
 #define SRF08_MAX_GAIN          0
 
 #define NOMBRE_TELEMETRES       4
-#define COEF_TELEMETRE_ULTRASON (3.3 * 259.183)
 // Types
 // ---------------------------------
 
 // -----------------------------
 //! Classe de gestion des options d'exécution passees en ligne de commande
-class CTelemetres {
+class CTelemetres : public CTelemetresBase
+{
 public :
 	CTelemetres();
 	~CTelemetres();
 	
+    // Ré-implémentation des méthodes virtuelles pures de la classe de base
+    /*virtual*/ float getDistanceAVG();
+    /*virtual*/ float getDistanceAVD();
+    /*virtual*/ float getDistanceARG();
+    /*virtual*/ float getDistanceARD();
+
 	//! Configuration de l'adresse I2C
 	void Config(void);
 	//! Traitements
 	void Traitement(void);
-	//! Recupere la dernière mesure lue sur le capteur en [cm]
-	float getDistance_Telemetre(unsigned char numero);
     //! Ecrit une valeur dans un registre du SRF08 
     void WriteRegister(unsigned char add, unsigned char reg, unsigned char val);
     //! Change l'adresse I2C d'un capteur

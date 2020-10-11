@@ -3,6 +3,7 @@
 */
 #include "RessourcesHardware.h"
 #include "CTelemetres.h"
+#include "ConfigSpecifiqueCoupe.h"
 // ------------------------------------------------------
 // Variables globales du fichier
 
@@ -44,6 +45,28 @@ CTelemetres::~CTelemetres()
 
 
 //___________________________________________________________________________
+float CTelemetres::getDistanceAVG()
+{
+    return m_distance[INDEX_TELEMETRE_AVG];
+}
+
+float CTelemetres::getDistanceAVD()
+{
+    return m_distance[INDEX_TELEMETRE_AVD];
+}
+
+float CTelemetres::getDistanceARG()
+{
+    return m_distance[INDEX_TELEMETRE_ARG];
+}
+
+float CTelemetres::getDistanceARD()
+{
+    return m_distance[INDEX_TELEMETRE_ARD];
+}
+
+
+//___________________________________________________________________________
  /*!
    \brief Configuration
 
@@ -80,16 +103,6 @@ void CTelemetres::Config(void)
 */
 void CTelemetres::Traitement(void)
 {
-
-	// Todo : appliquer un filtrage / une calibration automatique / une comparaison entre capteurs
-	  // Loi de commande : 9.8mV/inch = 9.8mV/2.54mm
-	  // TODO : réactiver les moyennes et hystérisis
-	  // resultat en cm
-	  m_distance[0] = _Eana2.read() * COEF_TELEMETRE_ULTRASON;
-	  m_distance[1] = _Eana3.read() * COEF_TELEMETRE_ULTRASON;
-	  m_distance[2] = 0; //que 2 capteurs US sur MiniBot
-	  m_distance[3] = 0;
-	  /*
   static unsigned char tempoBootSRF08 = 0;
   unsigned int ui_tmp=0;
   unsigned char index;
@@ -124,7 +137,6 @@ void CTelemetres::Traitement(void)
   // Passe au capteur suivant
   m_numSRF08++;
   if (m_numSRF08 >= NOMBRE_TELEMETRES) { m_numSRF08 = 0; }
-  */
 }
 
 

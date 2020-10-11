@@ -3,8 +3,6 @@
 #include "CGlobale.h"
 
 CGlobale Application;
-  
-
 
 
 // _____________________________________________________________
@@ -12,6 +10,9 @@ int main() {
 	 
     //_led1 = true;
 	wait_ms(1);
+
+    // Initialise le gestionnaire de temps
+    _Global_Timer.start();
 
      Application.Run();
     

@@ -22,7 +22,7 @@ public:
     SM_ActiverPhare             m_sm_activer_phare;
     SM_Recup5Bouees             m_sm_recup_5_bouees;
     SM_Depose3bouees            m_sm_depose_3_bouees;
-    SM_Depose3bouees            m_sm_depose_2_bouees;
+    SM_Depose2bouees            m_sm_depose_2_bouees;
     SM_DetecterNordSud          m_sm_detecter_nord_sud;
     SM_ArriverABonPort          m_sm_arriver_a_bon_port;
 

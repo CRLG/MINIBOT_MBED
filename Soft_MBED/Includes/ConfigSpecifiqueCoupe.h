@@ -91,11 +91,10 @@ typedef enum {
 }eATTRIBUTION_POWER_SWITCH;
 
 
-// Affectation des numéros de télémètres SRF08
-#define INDEX_TELEMETRE_AVG 2
-#define INDEX_TELEMETRE_AVD 0
-#define INDEX_TELEMETRE_ARG 3
-#define INDEX_TELEMETRE_ARD 1
+// Affectation des numéros de télémètres
+// TODO : affectation à vérifier
+#define INDEX_TELEMETRE_AV 0
+#define INDEX_TELEMETRE_AR 1
 
 
 //! Période d'appel du modèle

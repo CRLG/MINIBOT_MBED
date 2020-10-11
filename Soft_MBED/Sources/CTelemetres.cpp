@@ -8,7 +8,6 @@
 // Variables globales du fichier
 
 
-unsigned char SRF08_buf[3];
 // ------------------------------------------------------
 // Variables globales externes
 
@@ -47,46 +46,23 @@ CTelemetres::~CTelemetres()
 //___________________________________________________________________________
 float CTelemetres::getDistanceAVG()
 {
-    return m_distance[INDEX_TELEMETRE_AVG];
+    return m_distance[INDEX_TELEMETRE_AV];
 }
 
 float CTelemetres::getDistanceAVD()
 {
-    return m_distance[INDEX_TELEMETRE_AVD];
+    return m_distance[INDEX_TELEMETRE_AV];
 }
 
 float CTelemetres::getDistanceARG()
 {
-    return m_distance[INDEX_TELEMETRE_ARG];
+    return m_distance[INDEX_TELEMETRE_AR];
 }
 
 float CTelemetres::getDistanceARD()
 {
-    return m_distance[INDEX_TELEMETRE_ARD];
+    return m_distance[INDEX_TELEMETRE_AR];
 }
-
-
-//___________________________________________________________________________
- /*!
-   \brief Configuration
-
-   \param --
-   \return --
-*/
-void CTelemetres::Config(void)
-{
- unsigned char i=0;
-
- for (i=0; i<NOMBRE_TELEMETRES; i++) {
-  // Suppose que adresses I2C des capteurs sont configurées pour se suivre
-  m_adresseI2C[i] = ADRESSE_SRF08_BASE + (i*2); 
-  WriteRegister(m_adresseI2C[i], SRF08_reg_RANGE, SRF08_RESOLUTION_MAX); // Résolution max  de 46*0.043m + 0.043m = 2mètres environ  
-  WriteRegister(m_adresseI2C[i], SRF08_reg_MAX_GAIN, SRF08_MAX_GAIN);    // Résolution max  de 100*0.043m = 4.3mètres environ  
- }
- // Initialise la machine d'état
- m_numSRF08 = 0;
-}
-
 
 //___________________________________________________________________________
  /*!
@@ -94,81 +70,82 @@ void CTelemetres::Config(void)
 
    \param --
    \return --
-   \remark la gestion des capteurs a ultrasons doit se faire de manière séquentielle
-   c'est à dire que la mesure de distance est lancée sur un capteur puis à la séquence
-   d'après sur l'autre et ainsi de suite.
-   La période d'appel de cette fonction doit être calibrée pour que l'écho ultrason de la 
-   précédente mesure soit revenu avant de lancer une mesure sur un nouveau capteur.
-   Cette méthode permet d'éviter les perturbations mutuelles d'un capteur sur l'autre.
+   \remark
 */
+#define COEF_TELEMETRE_ULTRASON (3.3 * 259.183)
 void CTelemetres::Traitement(void)
 {
-  static unsigned char tempoBootSRF08 = 0;
-  unsigned int ui_tmp=0;
-  unsigned char index;
-  
-  // Permet de s'assurer que le capteur a booté avant de commencer les mesures (problème de blocage constaté en pratique) 
-  if (tempoBootSRF08 < 10) {
-    tempoBootSRF08++;
-    if (tempoBootSRF08 == 7) {  // Une fois booté, on envoie la config au SRF et on laisse un petit temps avant les mesures
-        Config();
-    }    
-    return;   // Ne fait pas les mesures durant le temps de boot des SRF08
-  }         
-  
-  // Lit les informations du dernier capteur
-  if (m_numSRF08 == 0) {
-    index = NOMBRE_TELEMETRES - 1;
-  } 
-  else {
-    index = m_numSRF08-1;
+    // Todo : appliquer un filtrage / une calibration automatique / une comparaison entre capteurs
+      // Loi de commande : 9.8mV/inch = 9.8mV/2.54mm
+      // TODO : réactiver les moyennes
+      // resultat en cm
+      m_distance[0] = _Eana2.read() * COEF_TELEMETRE_ULTRASON;
+      m_distance[1] = _Eana3.read() * COEF_TELEMETRE_ULTRASON;
   }
-  m_buff[0] = SRF08_reg_1st_ECHO_MSB;
-  _i2c.write(m_adresseI2C[index], m_buff, 1); // Sélectionne l'adresse à lire
-  _i2c.read(m_adresseI2C[index], m_buff, 2);
-  ui_tmp = (((unsigned int)m_buff[0])<<8) + ((unsigned int)m_buff[1]);
-  if (ui_tmp > 1) {  // Patch pour éliminer les situations où d'un seul coup, la mesure passe à "0" pendant quelques échantillons -> pas de mise à jour de la donnée sur le CAN si valeur erronée
-        m_distance[index] = ui_tmp;
+
+
+  // _____________________________________________________
+  /*!
+     \brief Calcul la moyenne glissante sur un nombre donnÃ© d'Ã©chantillon pour des donnÃ©es de type char
+      \param currentVal : le dernier echantillon recu
+      \param *old_samples : le tableau des Ã©chantillons prÃ©cÃ©dents
+      \param samplesNumbers : le nombre d'echantillons pour le calcul la moyenne glissante
+      \return La valeur moyenne entre le dernier echantillon recu et les (nbreEchantillonsMoyenne)  precedents echantillons
+
+      \remarks La moyenne se fait sur "samplesNumbers" valeurs :
+              - L'echantillons courant currentVal
+              - Les (samplesNumbers-1) echantillons precedents
+              Le tableau old_sanmples doit donc avoir une taille de (samplesNumber - 1) valeurs
+  */
+  float CTelemetres::MoyenneGlissante_float(float currentVal, float *buf_oldSamples, unsigned int samplesNumbers)
+  {
+    float moy=currentVal;
+    int i=0;  // Attention : doit Ãªtre un "int" et non un "unsigned int" Ã  cause du test de fin dans le "for"
+
+    // Traite tous les Ã©chantillons sauf le 1er (index 0 du tableau) qui est un cas particulier
+    for (i=(samplesNumbers-2); i>0; i--) {
+        moy = moy + buf_oldSamples[i];
+        buf_oldSamples[i] = buf_oldSamples[i-1];
+    }
+
+    // Cas particulier pour la 1Ã¨re case du tableau oÃ¹ la nouvelle valeur ne provient pas de l'index prÃ©cÃ©dent du tableau mais du nouvel Ã©chantillon
+    moy = moy + buf_oldSamples[0];
+    buf_oldSamples[0] = currentVal;
+
+    moy = moy / (float)samplesNumbers;
+
+    return(moy);
   }
-  
-  // Lance la mesure pour le télémètre suivant
-  WriteRegister(m_adresseI2C[index], SRF08_reg_COMMAND, SRF08_MEASURE_CM);
-
-  // Passe au capteur suivant
-  m_numSRF08++;
-  if (m_numSRF08 >= NOMBRE_TELEMETRES) { m_numSRF08 = 0; }
-}
 
 
-//___________________________________________________________________________
- /*!
-   \brief Ecrit dans un registre
+  // _____________________________________________________
+  /*!
+     \brief Gestion d'un hysterisis
+      \param vin le signal d'entree
+      \param *etat la valeur precedente de la sortie
+      \param swapOff le seuil de basculement vers inactif
+      \param swapOn le seuil de basculement vers actif
+      \param valOff la valeur de la sortie a l'etat inactif
+      \param valOn la valeur de la sortie a l'etat actif
 
-   \param --
-   \return --
-*/
-void CTelemetres::WriteRegister(unsigned char add, unsigned char reg, unsigned char val)
-{
-  m_buff[0] = reg;
-  m_buff[1] = val;
-  _i2c.write(add, m_buff, 2);
-}
+      \return la valeur de la sortie apres passage dans l'hysterisis
 
-
-
-
-   
-// -------------------------------------------------------
-// Séquence à respecter tel décrit dans la spec
-void CTelemetres::ChangeAdresse(unsigned char oldAdd, unsigned char newAdd)
-{
-   WriteRegister(oldAdd, SRF08_reg_COMMAND, 0xA0);
-   WriteRegister(oldAdd, SRF08_reg_COMMAND, 0xAA);
-   WriteRegister(oldAdd, SRF08_reg_COMMAND, 0xA5);
-   WriteRegister(oldAdd, SRF08_reg_COMMAND, newAdd);
-}    
-
-
+      \remarks
+  */
+  unsigned char CTelemetres::Hysterisis (float vin, unsigned char *etat, float swapOff, float swapOn, unsigned char valOff, unsigned char valOn)
+  {
+      if (vin <= swapOff) { // seuil bas
+          *etat = valOff;
+      } else if (vin >= swapOn) { // seuil haut
+          *etat = valOn;
+      } else {
+          //on ne fait rien
+      }
+      if (*etat == 0xFF) { // cas d'init
+          *etat = valOff;
+      } // else on ne fait rien
+      return *etat;
+  }
 
 // END
 

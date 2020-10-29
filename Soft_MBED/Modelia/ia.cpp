@@ -19,6 +19,7 @@ IA::IA()
     m_sm_liste[m_state_machine_count++] = &m_sm_arriver_a_bon_port;
     m_sm_liste[m_state_machine_count++] = &m_sm_activer_phare;
     m_sm_liste[m_state_machine_count++] = &m_sm_detecter_nord_sud;
+    m_sm_liste[m_state_machine_count++] = &m_sm_relever_drapeau;
 }
 
 // ________________________________________________
@@ -54,6 +55,15 @@ void IA::setStrategie(unsigned char strategie)
     resetAllSMPriority();
     switch (strategie) {
     // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
+    case STRATEGIE_PAR_DEFAUT:
+        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
+        m_sm_recup_5_bouees.setEnabled(false);
+        m_sm_depose_2_bouees.setEnabled(false);
+        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
+        m_sm_arriver_a_bon_port.setEnabled(false);
+        m_sm_activer_phare.setEnabled(false);
+        break;
+    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
     case STRATEGIE_TEST_01:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
         m_sm_recup_5_bouees.setPrioriteExecution(ordre++);
@@ -64,10 +74,14 @@ void IA::setStrategie(unsigned char strategie)
     // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
     case STRATEGIE_HOMOLO1:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_recup_5_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_2_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
-        m_sm_arriver_a_bon_port.setPrioriteExecution(ordre++);
+        Application.m_detection_obstacles.inhibeDetection(true);
+        m_sm_relever_drapeau.setPrioriteExecution(ordre++);
+        m_sm_detecter_nord_sud.setEnabled(false);
+        m_sm_recup_5_bouees.setEnabled(false);
+        m_sm_depose_2_bouees.setEnabled(false);
+        m_sm_depose_3_bouees.setEnabled(false);
+        m_sm_arriver_a_bon_port.setEnabled(false);
+        m_sm_activer_phare.setEnabled(false);
         break;
     // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
     case STRATEGIE_HOMOLO2:

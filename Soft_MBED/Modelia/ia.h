@@ -10,6 +10,7 @@
 #include "sm_depose2bouees.h"
 #include "sm_detecternordsud.h"
 #include "sm_arriverabonport.h"
+#include "sm_releverdrapeau.h"
 #include "sm_debuginterface.h"
 
 class IA : public IABase
@@ -25,6 +26,7 @@ public:
     SM_Depose2bouees            m_sm_depose_2_bouees;
     SM_DetecterNordSud          m_sm_detecter_nord_sud;
     SM_ArriverABonPort          m_sm_arriver_a_bon_port;
+    SM_ReleverDrapeau           m_sm_relever_drapeau;
 
     void step();
     void init();

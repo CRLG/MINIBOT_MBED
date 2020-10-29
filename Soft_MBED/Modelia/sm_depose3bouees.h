@@ -1,9 +1,9 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 25_10_2020 at 11_51
  */
 
-#ifndef SM_DEPOSE_3_BOUEES_H_
-#define SM_DEPOSE_3_BOUEES_H_
+#ifndef SM_DEPOSE3BOUEES_H
+#define SM_DEPOSE3BOUEES_H
 
 #include "sm_statemachinebase.h"
 
@@ -32,9 +32,8 @@ public:
 	STATE_14,
 	STATE_15,
 	STATE_16,
-	STATE_17,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_DEPOSE_3_BOUEES_H_
+#endif // SM_DEPOSE3BOUEES_H

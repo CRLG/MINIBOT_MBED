@@ -1,5 +1,5 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 25_10_2020 at 11_51
  */
 
 #include "sm_depose3bouees.h"
@@ -22,7 +22,6 @@ const char* SM_Depose3bouees::stateToName(unsigned short state)
 	{
 		case STATE_1 :		return "STATE_1";
 		case STATE_2 :		return "STATE_2";
-		case STATE_3 :		return "STATE_3";
 		case FIN_MISSION :	return "FIN_MISSION";
 	}
 	return "UNKNOWN_STATE";
@@ -37,7 +36,7 @@ void SM_Depose3bouees::step()
 	// ___________________________
 	case STATE_1 :
 		if (onEntry()) {
-			Application.m_asservissement.CommandeMouvementXY_TETA(0,-90,0);/**/
+            Application.m_asservissement.CommandeMouvementXY_TETA(40,0,0);/**/
 		}
 
 			gotoStateIfConvergence(STATE_2,5000);
@@ -46,19 +45,10 @@ void SM_Depose3bouees::step()
 	// ___________________________
 	case STATE_2 :
 		if (onEntry()) {
-			Application.m_asservissement.CommandeMouvementXY_TETA(50,-90,1.57);/**/
+            Application.m_servos_ax.setPosition(3,500);/*2*/
 		}
 
-			gotoStateIfConvergence(STATE_3,5000);
-		if (onExit()) {  }
-		break;
-	// ___________________________
-	case STATE_3 :
-		if (onEntry()) {
-			Application.m_asservissement.CommandeMouvementXY_TETA(23,-61,-3.14);/**/
-		}
-
-			gotoStateIfConvergence(FIN_MISSION,5000);
+			gotoStateAfter(FIN_MISSION, 4000);
 		if (onExit()) {  }
 		break;
 

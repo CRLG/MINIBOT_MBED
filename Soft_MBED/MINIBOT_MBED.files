@@ -248,6 +248,9 @@ Modelia/sm_arriverabonport.h
 
 Modelia/sm_detecternordsud.h
 
+Modelia/kmar.cpp
+Modelia/kmar.h
+
 ext/CppRobLib/Communication/Messenger/databasebase.cpp
 ext/CppRobLib/Communication/Messenger/databasebase.h
 ext/CppRobLib/Communication/Messenger/nodebase.cpp
@@ -290,6 +293,9 @@ ext/CppRobLib/Communication/Messenger/MessagesGeneric/message_free_string.h
 ext/CppRobLib/Communication/XBEE/xbeedriverbase.cpp
 ext/CppRobLib/Communication/XBEE/xbeedriverbase.h
 
+ext/CppRobLib/Communication/DataEncoderDecoder/data_encoder_decoder.cpp
+ext/CppRobLib/Communication/DataEncoderDecoder/data_encoder_decoder.h
+
 ext/CppRobLib/mcp23017/mcp23017base.h
 ext/CppRobLib/mcp23017/mcp23017base.cpp
 
@@ -311,6 +317,8 @@ ext/CppRobLib/common-rob/CDetectionObstaclesBase.cpp
 ext/CppRobLib/common-rob/CDetectionObstaclesBase.h
 ext/CppRobLib/common-rob/CCapteursBase.cpp
 ext/CppRobLib/common-rob/CCapteursBase.h
+ext/CppRobLib/common-rob/CKmarBase.cpp
+ext/CppRobLib/common-rob/CKmarBase.h
 
 ext/CppRobLib/common-rob/Modelia/sm_statemachinebase.h
 ext/CppRobLib/common-rob/Modelia/sm_statemachinebase.cpp

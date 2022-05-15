@@ -38,6 +38,7 @@ OBJECTS += Modelia/sm_depose2bouees.o
 OBJECTS += Modelia/sm_releverdrapeau.o
 OBJECTS += Modelia/sm_detecternordsud.o        
 OBJECTS += Modelia/sm_activerphare.o
+OBJECTS += Modelia/kmar.o
 
 ###############################################################################
 # Objects and Paths for mbed-common
@@ -75,6 +76,7 @@ INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/Communication/Messenger
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/Communication/Messenger/DatabaseXbeeNetwork2019
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/Communication/Messenger/MessagesGeneric
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/Communication/XBEE
+INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/Communication/DataEncoderDecoder
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/ServosAX
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/mcp23017
 INCLUDE_PATHS += -I../$(CPPROBLIB_PATH)/PowerElectrobot
@@ -95,6 +97,7 @@ OBJECTS += $(CPPROBLIB_PATH)/Communication/Messenger/MessagesGeneric/message_gro
 OBJECTS += $(CPPROBLIB_PATH)/Communication/Messenger/MessagesGeneric/message_robotlego_status.o
 OBJECTS += $(CPPROBLIB_PATH)/Communication/Messenger/MessagesGeneric/message_balise_positions.o
 OBJECTS += $(CPPROBLIB_PATH)/Communication/Messenger/MessagesGeneric/message_free_string.o
+OBJECTS += $(CPPROBLIB_PATH)/Communication/DataEncoderDecoder/data_encoder_decoder.o
 OBJECTS += $(CPPROBLIB_PATH)/Communication/XBEE/xbeedriverbase.o
 OBJECTS += $(CPPROBLIB_PATH)/ServosAX/servoaxbase.o
 OBJECTS += $(CPPROBLIB_PATH)/ServosAX/servoax_utils.o
@@ -107,6 +110,7 @@ OBJECTS += $(CPPROBLIB_PATH)/common-rob/CServoMoteurSD20Base.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/CLedBase.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/CLeds.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/CTelemetresBase.o
+OBJECTS += $(CPPROBLIB_PATH)/common-rob/CKmarBase.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/CDetectionObstaclesBase.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/CCapteursBase.o
 OBJECTS += $(CPPROBLIB_PATH)/common-rob/Modelia/iabase.o

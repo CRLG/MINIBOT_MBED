@@ -47,7 +47,7 @@ public:
     bool ConvergenceRack_old;
     bool FrontM_ConvergenceRack;
 
-
+    bool ConvergenceKmar;
 };
 
 #endif // SM_INPUTSINTERFACE_H

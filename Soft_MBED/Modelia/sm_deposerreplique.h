@@ -1,16 +1,16 @@
 /**
- * Generated 28_10_2020 at 15_40
+ * Generated 10_04_2020 at 20_27
  */
 
-#ifndef SM_RELEVERDRAPEAU_H
-#define SM_RELEVERDRAPEAU_H
+#ifndef SM_DEPOSER_REPLIQUE_H_
+#define SM_DEPOSER_REPLIQUE_H_
 
 #include "sm_statemachinebase.h"
 
-class SM_ReleverDrapeau : public SM_StateMachineBase
+class SM_DeposerReplique : public SM_StateMachineBase
 {
 public:
-	SM_ReleverDrapeau();
+    SM_DeposerReplique();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -33,15 +33,8 @@ public:
 	STATE_15,
 	STATE_16,
 	STATE_17,
-	STATE_18,
-	STATE_19,
-	STATE_20,
-	STATE_21,
-	STATE_22,
-	STATE_23,
-	STATE_24,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_RELEVERDRAPEAU_H
+#endif // SM_DEPOSER_REPLIQUE_H_

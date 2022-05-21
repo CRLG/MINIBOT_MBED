@@ -2,21 +2,21 @@
  * Generated 10_04_2020 at 20_27
  */
 
-#include "sm_depose2bouees.h"
+#include "sm_recupererechantillon.h"
 #include "CGlobale.h"
 
-SM_Depose2bouees::SM_Depose2bouees()
+SM_RecupererEchantillon::SM_RecupererEchantillon()
 {
 	m_main_mission_type = true;
 	m_max_score = 0;
 }
 
-const char* SM_Depose2bouees::getName()
+const char* SM_RecupererEchantillon::getName()
 {
-        return "SM_Depose2bouees";
+        return "SM_RecupererEchantillon";
 }
 
-const char* SM_Depose2bouees::stateToName(unsigned short state)
+const char* SM_RecupererEchantillon::stateToName(unsigned short state)
 {
 	switch(state)
 	{
@@ -29,7 +29,7 @@ const char* SM_Depose2bouees::stateToName(unsigned short state)
 }
 
 // _____________________________________
-void SM_Depose2bouees::step()
+void SM_RecupererEchantillon::step()
 {
 	switch (m_state)
 	{

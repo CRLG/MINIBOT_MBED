@@ -2,21 +2,21 @@
  * Generated 10_04_2020 at 20_27
  */
 
-#include "sm_activerphare.h"
+#include "sm_retourzonedepart.h"
 #include "CGlobale.h"
 
-SM_ActiverPhare::SM_ActiverPhare()
+SM_RetourZoneDepart::SM_RetourZoneDepart()
 {
 	m_main_mission_type = true;
 	m_max_score = 0;
 }
 
-const char* SM_ActiverPhare::getName()
+const char* SM_RetourZoneDepart::getName()
 {
-    return "SM_ActiverPhare";
+        return "SM_RetourZoneDepart";
 }
 
-const char* SM_ActiverPhare::stateToName(unsigned short state)
+const char* SM_RetourZoneDepart::stateToName(unsigned short state)
 {
 	switch(state)
 	{
@@ -29,7 +29,7 @@ const char* SM_ActiverPhare::stateToName(unsigned short state)
 }
 
 // _____________________________________
-void SM_ActiverPhare::step()
+void SM_RetourZoneDepart::step()
 {
 	switch (m_state)
 	{

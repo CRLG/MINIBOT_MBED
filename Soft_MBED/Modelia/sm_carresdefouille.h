@@ -2,15 +2,15 @@
  * Generated 10_04_2020 at 20_27
  */
 
-#ifndef SM_ACTIVER_PHARE_H_
-#define SM_ACTIVER_PHARE_H_
+#ifndef SM_CARRES_DE_FOUILLE_H_
+#define SM_CARRES_DE_FOUILLE_H_
 
 #include "sm_statemachinebase.h"
 
-class SM_ActiverPhare : public SM_StateMachineBase
+class SM_CarresDeFouille : public SM_StateMachineBase
 {
 public:
-    SM_ActiverPhare();
+    SM_CarresDeFouille();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -37,4 +37,4 @@ public:
 	}tState;
 };
 
-#endif // SM_ACTIVER_PHARE_H_
+#endif // SM_CARRES_DE_FOUILLE_H_

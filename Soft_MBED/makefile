@@ -26,19 +26,18 @@ OBJECTS += Sources/CTelemetres.o
 OBJECTS += Sources/CCapteurs.o
 
 OBJECTS += Modelia/ia.o
+OBJECTS += Modelia/kmar.o
 OBJECTS += Modelia/sm_inputsinterface.o
 OBJECTS += Modelia/sm_outputsinterface.o
 OBJECTS += Modelia/sm_datasinterface.o         
 OBJECTS += Modelia/sm_autotest.o               
 OBJECTS += Modelia/sm_sequenceur.o
-OBJECTS += Modelia/sm_arriverabonport.o        
-OBJECTS += Modelia/sm_recup5bouees.o
-OBJECTS += Modelia/sm_depose3bouees.o
-OBJECTS += Modelia/sm_depose2bouees.o
-OBJECTS += Modelia/sm_releverdrapeau.o
-OBJECTS += Modelia/sm_detecternordsud.o        
-OBJECTS += Modelia/sm_activerphare.o
-OBJECTS += Modelia/kmar.o
+
+OBJECTS += Modelia/sm_carresdefouille.o
+OBJECTS += Modelia/sm_deposerreplique.o
+OBJECTS += Modelia/sm_recupererechantillon.o
+OBJECTS += Modelia/sm_retourzonedepart.o
+OBJECTS += Modelia/sm_sequenceur.o
 
 ###############################################################################
 # Objects and Paths for mbed-common

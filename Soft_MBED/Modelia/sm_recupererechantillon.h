@@ -1,16 +1,16 @@
 /**
- * Generated 28_10_2020 at 15_42
+ * Generated 10_04_2020 at 20_27
  */
 
-#ifndef SM_DETECTERNORDSUD_H
-#define SM_DETECTERNORDSUD_H
+#ifndef SM_RECUPERER_ECHANTILLON_H_
+#define SM_RECUPERER_ECHANTILLON_H_
 
 #include "sm_statemachinebase.h"
 
-class SM_DetecterNordSud : public SM_StateMachineBase
+class SM_RecupererEchantillon : public SM_StateMachineBase
 {
 public:
-	SM_DetecterNordSud();
+    SM_RecupererEchantillon();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -32,8 +32,9 @@ public:
 	STATE_14,
 	STATE_15,
 	STATE_16,
+	STATE_17,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_DETECTERNORDSUD_H
+#endif // SM_RECUPERER_ECHANTILLON_H_

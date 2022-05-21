@@ -13,13 +13,10 @@ IA::IA()
     : IABase()
 {
     m_sm_liste[m_state_machine_count++] = &m_sm_autotest;
-    m_sm_liste[m_state_machine_count++] = &m_sm_recup_5_bouees;
-    m_sm_liste[m_state_machine_count++] = &m_sm_depose_3_bouees;
-    m_sm_liste[m_state_machine_count++] = &m_sm_depose_2_bouees;
-    m_sm_liste[m_state_machine_count++] = &m_sm_arriver_a_bon_port;
-    m_sm_liste[m_state_machine_count++] = &m_sm_activer_phare;
-    m_sm_liste[m_state_machine_count++] = &m_sm_detecter_nord_sud;
-    m_sm_liste[m_state_machine_count++] = &m_sm_relever_drapeau;
+    m_sm_liste[m_state_machine_count++] = &m_sm_carres_de_fouille;
+    m_sm_liste[m_state_machine_count++] = &m_sm_deposer_replique;
+    m_sm_liste[m_state_machine_count++] = &m_sm_recuperer_echantillon;
+    m_sm_liste[m_state_machine_count++] = &m_sm_retour_zone_depart;
 }
 
 // ________________________________________________
@@ -40,74 +37,44 @@ void IA::init()
 
 // ________________________________________________
 // Définit l'ordre d'exécution des "main missions"
-// Cette année, pour ce robot, les mains missions sont :
-//   - m_sm_activer_phare;
-//   - m_sm_deposer_bouees_dans_port;
-//   - m_sm_recup_2_bouees_zone_depart;
-//   - m_sm_recup_5_bouees;
-//   - m_sm_recup_bouees_distributeur;
-//   - m_sm_arriver_a_bon_port;
-// Pour interdire l'exécution d'une mission :
-//   - m_sm_xxx.setEnabled(false);
+// sm_xxxx.setPrioriteExecution(ordre++);
+//      Active la mission xxx
+//      Lui fixe une priorité d'exécution (0 étant la priorité la plus haute)
 void IA::setStrategie(unsigned char strategie)
 {
     int ordre = 0;
     resetAllSMPriority();
+    disableAllSM(); // Désactive toutes les SM par défaut (elles seront activées une par une avec la priorité associée en fonction de la stratégie)
     switch (strategie) {
-    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
-    case STRATEGIE_PAR_DEFAUT:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_recup_5_bouees.setEnabled(false);
-        m_sm_depose_2_bouees.setEnabled(false);
-        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
-        m_sm_arriver_a_bon_port.setEnabled(false);
-        m_sm_activer_phare.setEnabled(false);
-        break;
-    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
-    case STRATEGIE_TEST_01:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_recup_5_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_2_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
-        m_sm_arriver_a_bon_port.setPrioriteExecution(ordre++);
-        break;
-    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
+    // ________________________
     case STRATEGIE_HOMOLO1:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        Application.m_detection_obstacles.inhibeDetection(true);
-        m_sm_relever_drapeau.setPrioriteExecution(ordre++);
-        m_sm_detecter_nord_sud.setEnabled(false);
-        m_sm_recup_5_bouees.setEnabled(false);
-        m_sm_depose_2_bouees.setEnabled(false);
-        m_sm_depose_3_bouees.setEnabled(false);
-        m_sm_arriver_a_bon_port.setEnabled(false);
-        m_sm_activer_phare.setEnabled(false);
-        break;
-    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
-    case STRATEGIE_HOMOLO2:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_recup_5_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_2_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
-        m_sm_arriver_a_bon_port.setPrioriteExecution(ordre++);
-        m_sm_activer_phare.setEnabled(false);  // celle là, on ne veut surtout pas qu'elle s'exécute dans cette stratégie
-        break;
-    // ________________________ Attention : c'est juste un exemple pour montrer comment ça s'utilise
-    case STRATEGIE_01:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_SCORE_MAX;
-        m_sm_activer_phare.setEnabled(false);  // celle là, on ne veut surtout pas qu'elle s'exécute dans cette stratégie
+        //m_datas_interface.evit_inhibe_obstacle=true;
+        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        m_datas_interface.evit_nombre_max_tentatives=1;
+
+        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
+        m_sm_deposer_replique.setPrioriteExecution(ordre++);
+
         break;
     // ________________________
-    // TODO : configurer les autres stratégies
+    case STRATEGIE_HOMOLO2:
+        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
 
+        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
+        m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
+
+        break;
     // ________________________  A VERIFIER
+    case STRATEGIE_PAR_DEFAUT:
     default:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_recup_5_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_2_bouees.setPrioriteExecution(ordre++);
-        m_sm_depose_3_bouees.setPrioriteExecution(ordre++);
-        m_sm_arriver_a_bon_port.setPrioriteExecution(ordre++);
-         break;
+        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
+        m_sm_deposer_replique.setPrioriteExecution(ordre++);
+        m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
+        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
+        break;
     }
     m_datas_interface.ChoixStrategieMatch = strategie;
 }
@@ -117,11 +84,7 @@ void IA::setMaxScores()
 {
     // TODO : valeurs des scores max fixées au pif.
     // Mettre les vraies valeurs
-    m_sm_recup_5_bouees.setScoreMax(10);
-    m_sm_depose_3_bouees.setScoreMax(12);
-    m_sm_depose_2_bouees.setScoreMax(13);
-    m_sm_activer_phare.setScoreMax(11);
-    m_sm_arriver_a_bon_port.setScoreMax(15);
+    //m_sm_carres_de_fouille.setScoreMax(10);
 }
 
 // ________________________________________________
@@ -138,6 +101,7 @@ void IA::step()
     m_inputs_interface.X_robot             = Application.m_asservissement.X_robot;
     m_inputs_interface.Y_robot             = Application.m_asservissement.Y_robot;
     m_inputs_interface.angle_robot         = Application.m_asservissement.angle_robot;
+    m_inputs_interface.ConvergenceKmar     = Application.m_kmar.isFinished();
 
     // Coordonnées du robot dans le repère absolue terrain (pour que ce soit valable pour les 2 couleurs d'équipe)
     if (m_datas_interface.couleur_equipe == SM_DatasInterface::EQUIPE_COULEUR_1) {

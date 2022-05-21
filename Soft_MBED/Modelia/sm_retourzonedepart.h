@@ -2,15 +2,15 @@
  * Generated 10_04_2020 at 20_27
  */
 
-#ifndef SM_DEPOSE_2_BOUEES_H_
-#define SM_DEPOSE_2_BOUEES_H_
+#ifndef SM_RETOUR_ZONE_DEPART_H_
+#define SM_RETOUR_ZONE_DEPART_H_
 
 #include "sm_statemachinebase.h"
 
-class SM_Depose2bouees : public SM_StateMachineBase
+class SM_RetourZoneDepart : public SM_StateMachineBase
 {
 public:
-    SM_Depose2bouees();
+    SM_RetourZoneDepart();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -37,4 +37,4 @@ public:
 	}tState;
 };
 
-#endif // SM_DEPOSE_2_BOUEES_H_
+#endif // SM_RETOUR_ZONE_DEPART_H_

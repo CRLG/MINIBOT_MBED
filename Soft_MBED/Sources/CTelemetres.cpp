@@ -79,8 +79,8 @@ void CTelemetres::Traitement(void)
       // Loi de commande : 9.8mV/inch = 9.8mV/2.54mm
       // TODO : réactiver les moyennes
       // resultat en cm
-      m_distance[0] = _Eana2.read() * COEF_TELEMETRE_ULTRASON;
-      m_distance[1] = _Eana3.read() * COEF_TELEMETRE_ULTRASON;
+      m_distance[0] = _Eana1.read() * COEF_TELEMETRE_ULTRASON;
+      m_distance[1] = _Eana2.read() * COEF_TELEMETRE_ULTRASON;
   }
 
 

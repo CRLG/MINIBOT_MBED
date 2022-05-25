@@ -32,6 +32,7 @@ void IA::init()
         }
     }
     setMaxScores();
+    setStrategie(STRATEGIE_HOMOLO1);
     m_sm_main.start();
 }
 
@@ -49,9 +50,9 @@ void IA::setStrategie(unsigned char strategie)
     // ________________________
     case STRATEGIE_HOMOLO1:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_datas_interface.evit_inhibe_obstacle=true;
+        //m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
         m_sm_carres_de_fouille.setEnabled(false);
@@ -65,7 +66,7 @@ void IA::setStrategie(unsigned char strategie)
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
         m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
         m_sm_carres_de_fouille.setEnabled(false);
@@ -80,7 +81,7 @@ void IA::setStrategie(unsigned char strategie)
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
         m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
         m_sm_carres_de_fouille.setEnabled(false);

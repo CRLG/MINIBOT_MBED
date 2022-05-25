@@ -49,19 +49,27 @@ void IA::setStrategie(unsigned char strategie)
     // ________________________
     case STRATEGIE_HOMOLO1:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        //m_datas_interface.evit_inhibe_obstacle=true;
+        m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
         Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
-        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
-        m_sm_deposer_replique.setPrioriteExecution(ordre++);
+        m_sm_carres_de_fouille.setEnabled(false);
+        m_sm_deposer_replique.setEnabled(false);
+        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
+        m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
 
         break;
     // ________________________
     case STRATEGIE_HOMOLO2:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
+        m_datas_interface.evit_inhibe_obstacle=true;
+        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        m_datas_interface.evit_nombre_max_tentatives=1;
 
+        m_sm_carres_de_fouille.setEnabled(false);
+        m_sm_deposer_replique.setEnabled(false);
         m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
         m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
 
@@ -70,10 +78,16 @@ void IA::setStrategie(unsigned char strategie)
     case STRATEGIE_PAR_DEFAUT:
     default:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
-        m_sm_deposer_replique.setPrioriteExecution(ordre++);
+        m_datas_interface.evit_inhibe_obstacle=true;
+        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(12);
+        m_datas_interface.evit_nombre_max_tentatives=1;
+
+        m_sm_carres_de_fouille.setEnabled(false);
+        m_sm_deposer_replique.setEnabled(false);
+        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
         m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
+
         break;
     }
     m_datas_interface.ChoixStrategieMatch = strategie;
@@ -84,7 +98,10 @@ void IA::setMaxScores()
 {
     // TODO : valeurs des scores max fixées au pif.
     // Mettre les vraies valeurs
-    //m_sm_carres_de_fouille.setScoreMax(10);
+    m_sm_carres_de_fouille.setScoreMax(5);
+    m_sm_deposer_replique.setScoreMax(5);
+    m_sm_recuperer_echantillon.setScoreMax(5);
+    m_sm_retour_zone_depart.setScoreMax(5);
 }
 
 // ________________________________________________

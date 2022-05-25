@@ -9,5 +9,5 @@ SM_InputsInterface::SM_InputsInterface()
 void SM_InputsInterface::init()
 {
     dde_couleur_equipe = 0;
-    dde_test_actionneurs = 0;
+    dde_test_actionneurs = 1;
 }

@@ -1,16 +1,16 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 25_05_2022 at 09_56
  */
 
-#ifndef SM_RECUPERER_ECHANTILLON_H_
-#define SM_RECUPERER_ECHANTILLON_H_
+#ifndef SM_RECUPERERECHANTILLON_H
+#define SM_RECUPERERECHANTILLON_H
 
 #include "sm_statemachinebase.h"
 
 class SM_RecupererEchantillon : public SM_StateMachineBase
 {
 public:
-    SM_RecupererEchantillon();
+	SM_RecupererEchantillon();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -33,8 +33,21 @@ public:
 	STATE_15,
 	STATE_16,
 	STATE_17,
+	STATE_18,
+	STATE_19,
+	STATE_20,
+	STATE_21,
+	STATE_22,
+	STATE_23,
+	STATE_24,
+	STATE_25,
+	STATE_26,
+	STATE_27,
+	STATE_28,
+	STATE_29,
+	STATE_30,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_RECUPERER_ECHANTILLON_H_
+#endif // SM_RECUPERERECHANTILLON_H

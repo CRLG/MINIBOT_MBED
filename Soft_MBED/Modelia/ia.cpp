@@ -84,10 +84,10 @@ void IA::setStrategie(unsigned char strategie)
         Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
-        m_sm_carres_de_fouille.setEnabled(false);
-        m_sm_deposer_replique.setEnabled(false);
-        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
+        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
+        m_sm_deposer_replique.setPrioriteExecution(ordre++);
         m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
+
 
         break;
     }
@@ -233,7 +233,7 @@ void IA::step()
 // ________________________________________________
 void IA::match_started()
 {
-    Application.m_asservissement.setPosition_XYTeta(0, 0, 0); // TODO : à vérifier les valeurs
+    m_outputs_interface.setPosition_XYTeta_sym(0,0,-1.57);
 }
 
 // ________________________________________________

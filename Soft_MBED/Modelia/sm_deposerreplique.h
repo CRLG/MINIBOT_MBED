@@ -1,16 +1,16 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 26_05_2022 at 16_10
  */
 
-#ifndef SM_DEPOSER_REPLIQUE_H_
-#define SM_DEPOSER_REPLIQUE_H_
+#ifndef SM_DEPOSERREPLIQUE_H
+#define SM_DEPOSERREPLIQUE_H
 
 #include "sm_statemachinebase.h"
 
 class SM_DeposerReplique : public SM_StateMachineBase
 {
 public:
-    SM_DeposerReplique();
+	SM_DeposerReplique();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -33,8 +33,11 @@ public:
 	STATE_15,
 	STATE_16,
 	STATE_17,
+	STATE_18,
+	STATE_19,
+	STATE_20,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_DEPOSER_REPLIQUE_H_
+#endif // SM_DEPOSERREPLIQUE_H

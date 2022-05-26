@@ -1,16 +1,16 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 26_05_2022 at 16_20
  */
 
-#ifndef SM_CARRES_DE_FOUILLE_H_
-#define SM_CARRES_DE_FOUILLE_H_
+#ifndef SM_CARRESDEFOUILLE_H
+#define SM_CARRESDEFOUILLE_H
 
 #include "sm_statemachinebase.h"
 
 class SM_CarresDeFouille : public SM_StateMachineBase
 {
 public:
-    SM_CarresDeFouille();
+	SM_CarresDeFouille();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -33,8 +33,20 @@ public:
 	STATE_15,
 	STATE_16,
 	STATE_17,
+	STATE_18,
+	STATE_19,
+	STATE_20,
+	STATE_21,
+	STATE_22,
+	STATE_23,
+	STATE_24,
+	STATE_25,
+	STATE_26,
+	STATE_27,
+	STATE_28,
+	STATE_29,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_CARRES_DE_FOUILLE_H_
+#endif // SM_CARRESDEFOUILLE_H

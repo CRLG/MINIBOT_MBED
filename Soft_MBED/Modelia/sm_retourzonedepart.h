@@ -1,16 +1,16 @@
 /**
- * Generated 10_04_2020 at 20_27
+ * Generated 26_05_2022 at 16_29
  */
 
-#ifndef SM_RETOUR_ZONE_DEPART_H_
-#define SM_RETOUR_ZONE_DEPART_H_
+#ifndef SM_RETOURZONEDEPART_H
+#define SM_RETOURZONEDEPART_H
 
 #include "sm_statemachinebase.h"
 
 class SM_RetourZoneDepart : public SM_StateMachineBase
 {
 public:
-    SM_RetourZoneDepart();
+	SM_RetourZoneDepart();
 	void step();
 	const char* getName();
 	const char* stateToName(unsigned short state);
@@ -33,8 +33,11 @@ public:
 	STATE_15,
 	STATE_16,
 	STATE_17,
+	STATE_18,
+	STATE_19,
+	STATE_20,
 	FIN_MISSION
 	}tState;
 };
 
-#endif // SM_RETOUR_ZONE_DEPART_H_
+#endif // SM_RETOURZONEDEPART_H

@@ -230,5 +230,16 @@ void IA::step()
     stepAllStateMachines();
 }
 
+// ________________________________________________
+void IA::match_started()
+{
+    Application.m_asservissement.setPosition_XYTeta(0, 0, 0); // TODO : à vérifier les valeurs
+}
+
+// ________________________________________________
+void IA::match_finished()
+{
+}
+
 
 

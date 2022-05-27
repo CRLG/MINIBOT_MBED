@@ -55,23 +55,21 @@ void IA::setStrategie(unsigned char strategie)
         Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
-        m_sm_carres_de_fouille.setEnabled(false);
-        m_sm_deposer_replique.setEnabled(false);
-        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
+        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
+        m_sm_deposer_replique.setPrioriteExecution(ordre++);
         m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
 
         break;
     // ________________________
     case STRATEGIE_HOMOLO2:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_datas_interface.evit_inhibe_obstacle=true;
+        //m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
         Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
 
-        m_sm_carres_de_fouille.setEnabled(false);
-        m_sm_deposer_replique.setEnabled(false);
-        m_sm_recuperer_echantillon.setPrioriteExecution(ordre++);
+        m_sm_carres_de_fouille.setPrioriteExecution(ordre++);
+        m_sm_deposer_replique.setPrioriteExecution(ordre++);
         m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
 
         break;
@@ -79,7 +77,7 @@ void IA::setStrategie(unsigned char strategie)
     case STRATEGIE_PAR_DEFAUT:
     default:
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_datas_interface.evit_inhibe_obstacle=true;
+        //m_datas_interface.evit_inhibe_obstacle=true;
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
         Application.m_detection_obstacles.setSeuilDetectionObstacle(20);
         m_datas_interface.evit_nombre_max_tentatives=1;
@@ -233,7 +231,8 @@ void IA::step()
 // ________________________________________________
 void IA::match_started()
 {
-    m_outputs_interface.setPosition_XYTeta_sym(0,0,-1.57);
+    m_outputs_interface.setPosition_XYTeta_sym(0,0,-1.57); //poisiotn init
+    Application.m_servos_sd20.CommandePosition(18,226);/* CDR2022 serre replique*/
 }
 
 // ________________________________________________

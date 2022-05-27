@@ -1,5 +1,5 @@
 /**
- * Generated 26_05_2022 at 16_29
+ * Generated 27_05_2022 at 06_42
  */
 
 #include "sm_retourzonedepart.h"
@@ -20,7 +20,7 @@ const char* SM_RetourZoneDepart::stateToName(unsigned short state)
 {
 	switch(state)
 	{
-		case 1 :		return "1";
+		case STATE_1 :		return "STATE_1";
 		case STATE_2 :		return "STATE_2";
 		case STATE_3 :		return "STATE_3";
 		case STATE_4 :		return "STATE_4";
@@ -38,18 +38,18 @@ void SM_RetourZoneDepart::step()
 	{
 
 	// ___________________________
-	case 1 :
+	case STATE_1 :
 		if (onEntry()) {
-			//AUCUNE ACTION
+			Application.m_asservissement.CommandeMouvementXY_TETA(66,-122,0);/**/
 		}
 
-			gotoStateIfConvergence(STATE_1,5000);
+			gotoStateIfConvergence(STATE_2,5000);
 		if (onExit()) {  }
 		break;
 	// ___________________________
 	case STATE_2 :
 		if (onEntry()) {
-			outputs()->CommandeMouvementXY_TETA_sym(100,-100,2.3);/**/
+			outputs()->CommandeMouvementXY_TETA_sym(96,-104,2.3);/**/
 		}
 
 			gotoStateIfConvergence(STATE_3,5000);

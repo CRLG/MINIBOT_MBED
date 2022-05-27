@@ -1,5 +1,5 @@
 /**
- * Generated 26_05_2022 at 16_10
+ * Generated 27_05_2022 at 06_44
  */
 
 #ifndef SM_DEPOSERREPLIQUE_H
@@ -36,6 +36,13 @@ public:
 	STATE_18,
 	STATE_19,
 	STATE_20,
+	STATE_21,
+	STATE_22,
+	STATE_23,
+	COULEUR,
+	COULEUR_J,
+	COULEUR_B,
+	FIN_COULEUR,
 	FIN_MISSION
 	}tState;
 };

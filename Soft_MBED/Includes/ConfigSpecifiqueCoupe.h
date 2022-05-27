@@ -112,13 +112,13 @@ typedef enum {
 #define CDE_MAX_TOUT_DOUX (10)
 
 // Position d'init du robot dans le repère absolue terrain
-#define X_ROBOT_TERRAIN_INIT_COULEUR_1        (18)
-#define Y_ROBOT_TERRAIN_INIT_COULEUR_1        (129)
-#define ANGLE_ROBOT_TERRAIN_INIT_COULEUR_1    (0)
+#define X_ROBOT_TERRAIN_INIT_COULEUR_1        (27)
+#define Y_ROBOT_TERRAIN_INIT_COULEUR_1        (149)
+#define ANGLE_ROBOT_TERRAIN_INIT_COULEUR_1    (-1.57f)
 
-#define X_ROBOT_TERRAIN_INIT_COULEUR_2        (282)
-#define Y_ROBOT_TERRAIN_INIT_COULEUR_2        (129)
-#define ANGLE_ROBOT_TERRAIN_INIT_COULEUR_2    (3.14f)
+#define X_ROBOT_TERRAIN_INIT_COULEUR_2        (273)
+#define Y_ROBOT_TERRAIN_INIT_COULEUR_2        (149)
+#define ANGLE_ROBOT_TERRAIN_INIT_COULEUR_2    (-1.57f)
 
 // Coordonnées dans le repère absolue terrain
 // à partir desquelles il faut interdire la détection d'obstacle
@@ -127,7 +127,7 @@ typedef enum {
 #define X_MAX_INTERDIT_DETECTION    (265)
 #define X_MIN_INTERDIT_DETECTION    (35)
 #define Y_MIN_INTERDIT_DETECTION    (35)
-#define Y_MAX_INTERDIT_DETECTION    (165)
+#define Y_MAX_INTERDIT_DETECTION    (157) //8cm de moins (galerie) pour la CDR 2022
 
 #define HOMOLO 1
 
